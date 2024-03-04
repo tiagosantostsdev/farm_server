@@ -7,4 +7,4 @@ adminRoute.post("/newadmin", CreateAdmin)
 
 adminRoute.get("/findadmin", FindAdmin)
 
-adminRoute.patch("/updateadmin", UpdateAdmin)
+adminRoute.patch("/updateadmin/:id", UpdateAdmin)
