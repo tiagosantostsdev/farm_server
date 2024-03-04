@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { dbConnection } from "./database/dbConnection";
+import { adminRoute } from "./routes/adminRoute";
 
 //enviroment variables
 dotenv.config({ path: ".env" });
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(cors());
 
 //App uses routes
+app.use("/admin", adminRoute)
 
 //Server port
 const port: number = Number(process.env.PORT || 2002);
