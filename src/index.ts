@@ -1,12 +1,16 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import { dbConnection } from "./database/dbConnection";
 
 //enviroment variables
-dotenv.config({ path: "./src/.env" });
+dotenv.config({ path: ".env" });
 
 //Instance of express
 const app = express();
+
+//Database connection
+dbConnection();
 
 //App uses
 app.use(express.json());
