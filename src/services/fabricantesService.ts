@@ -10,11 +10,11 @@ export const deleteFabricantes = (id: string) =>
 
 export const updateFabricantes = (
   id: string,
+  nome: string,
   telefone: string,
   endereco: string,
-  nome: string
 ) =>
   Fabricantes.findOneAndUpdate(
     { _id: id },
-    { telefone: telefone, endereco: endereco, nome: nome }
+    { nome: nome, telefone: telefone, endereco: endereco }
   );

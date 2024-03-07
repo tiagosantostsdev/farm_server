@@ -24,7 +24,7 @@ export const CreateFabricante = async (
         .status(400)
         .send({ message: "Por favor preencha todos os campos" });
     }
-    const fabricante = createFabricantes({
+    const fabricante = await createFabricantes({
       nome,
       nif,
       pais,
@@ -70,17 +70,17 @@ export const UpdateFabricante = async (
 ) => {
   try {
     const { id } = req.params as { id: string };
-    const { nome, endereco, telefone } = req.body as {
+    const { nome, telefone, endereco } = req.body as {
       nome: string;
-      endereco: string;
       telefone: string;
+      endereco: string;
     };
     if (!nome && !endereco && !telefone) {
       return res.status(400).send({
         message: "Por favor selecione ao menos um campo para ser alterado",
       });
     }
-    await updateFabricantes(id, nome, endereco, telefone);
+    await updateFabricantes(id, nome, telefone, endereco);
     res.status(200).send({ message: "Dados alterado com sucesso" });
   } catch (error) {
     if (error instanceof Error) {

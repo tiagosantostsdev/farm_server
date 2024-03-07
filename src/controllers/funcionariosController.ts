@@ -36,7 +36,7 @@ export const CreateFuncionario = async (
     ) {
       return res.status(400).send({ message: "Please submit all field" });
     }
-    const funcionario = createFuncionario({
+    const funcionario = await createFuncionario({
       usuario,
       senha,
       nif,

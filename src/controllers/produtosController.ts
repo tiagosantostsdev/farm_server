@@ -42,7 +42,7 @@ export const CreateProdutos = async (
     ) {
       return res.status(400).send({ message: "Please submit all field" });
     }
-    const produtos = createProduto({
+    const produtos = await createProduto({
       codigo,
       nome,
       quantidade,
