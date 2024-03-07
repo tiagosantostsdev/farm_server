@@ -34,7 +34,7 @@ export const CreateFuncionario = async (
       !genero ||
       !dataNascimento
     ) {
-      return res.status(400).send({ message: "Please submit all field" });
+      return res.status(400).send({ message: "Por favor preencha todos os campos" });
     }
     const funcionario = await createFuncionario({
       usuario,

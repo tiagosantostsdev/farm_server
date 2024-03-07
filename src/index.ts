@@ -6,6 +6,8 @@ import { adminRoute } from "./routes/adminRoute";
 import { loginRoute } from "./routes/loginRoute";
 import { fabricanteRoute } from "./routes/fabricantesRoute";
 import { fornecedorRoute } from "./routes/fornecedoresRoute";
+import { funcionarioRoute } from "./routes/funcionariosRoute";
+import { produtosRoute } from "./routes/produtosRoute";
 
 //enviroment variables
 dotenv.config({ path: ".env" });
@@ -21,10 +23,12 @@ app.use(express.json());
 app.use(cors());
 
 //App uses routes
-app.use("/admin", adminRoute)
-app.use("/auth", loginRoute)
-app.use("/fabricantes", fabricanteRoute)
-app.use("/fornecedor", fornecedorRoute)
+app.use("/admin", adminRoute);
+app.use("/auth", loginRoute);
+app.use("/fabricantes", fabricanteRoute);
+app.use("/fornecedores", fornecedorRoute);
+app.use("/funcionarios", funcionarioRoute);
+app.use("/produtos", produtosRoute);
 
 //Server port
 const port: number = Number(process.env.PORT || 2002);

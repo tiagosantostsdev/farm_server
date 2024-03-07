@@ -3,6 +3,7 @@ import {
   createProduto,
   deleteProduto,
   findProdutos,
+  searchProdutos,
   updateProduto,
 } from "../services/produtosService";
 
@@ -23,7 +24,7 @@ export const CreateProdutos = async (
     } = req.body as {
       codigo: string;
       nome: string;
-      quantidade: string;
+      quantidade: number;
       dosagem: string;
       descricao: string;
       preco: string;
@@ -70,6 +71,30 @@ export const FindProdutos = async (
 ) => {
   try {
     const produtos = await findProdutos();
+    if (!produtos) {
+      return res.status(404).send({ message: "Nenhum produto foi encontrado" });
+    }
+    res.status(200).send(produtos);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log({ message: error.message });
+      return res.status(500).send({ message: error.message });
+    }
+  }
+};
+
+export const SearchProdutos = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { codigo } = req.query as { codigo: string; nome: string };
+    if (!codigo) {
+      return res
+        .status(400)
+        .send({ message: "Por favor adicone o codigo do produto" });
+    }
+    const produtos = await searchProdutos(codigo);
     if (!produtos) {
       return res.status(404).send({ message: "Nenhum produto foi encontrado" });
     }

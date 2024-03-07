@@ -15,5 +15,5 @@ export const updateFuncionario = (
 ) =>
   Funcionario.findOneAndUpdate(
     { _id: id },
-    { telefone: telemovel, endereco: endereco }
+    { telemovel: telemovel, endereco: endereco }
   );

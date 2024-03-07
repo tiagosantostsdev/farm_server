@@ -11,7 +11,7 @@ export const fornecedorRoute = Router();
 
 fornecedorRoute.post("/novo", authAdmin, CreateFornecedor);
 
-fornecedorRoute.get("/", authAdmin, FindFornecedor);
+fornecedorRoute.get("/", FindFornecedor);
 
 fornecedorRoute.patch("/update/:id", authAdmin, UpdateFornecedor);
 

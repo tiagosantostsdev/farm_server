@@ -5,6 +5,11 @@ export const createProduto = (values: Record<string, any>) =>
 
 export const findProdutos = () => Produto.find();
 
+export const searchProdutos = (codigo: string) =>
+  Produto.find(
+    { codigo: { $regex: `${codigo || ""}`, $options: "i" } }
+  );
+
 export const deleteProduto = (id: string) =>
   Produto.findOneAndDelete({ _id: id });
 
