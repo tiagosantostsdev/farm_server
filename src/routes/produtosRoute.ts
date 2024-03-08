@@ -7,6 +7,7 @@ import {
   SearchProdutos,
   UpdateProdutos,
 } from "../controllers/produtosController";
+import { validId } from "../middlewares/globalMiddleware";
 
 export const produtosRoute = Router();
 
@@ -14,8 +15,8 @@ produtosRoute.post("/novo", authAdmin, CreateProdutos);
 
 produtosRoute.get("/", FindProdutos);
 
-produtosRoute.get("/search", SearchProdutos)
+produtosRoute.get("/search", SearchProdutos);
 
-produtosRoute.patch("/update/:id", authAdmin, UpdateProdutos);
+produtosRoute.patch("/update/:id", authAdmin, validId, UpdateProdutos);
 
-produtosRoute.delete("/delete/:id", authAdmin, DeleteProdutos);
+produtosRoute.delete("/delete/:id", authAdmin, validId, DeleteProdutos);

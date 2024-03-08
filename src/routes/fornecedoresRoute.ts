@@ -6,6 +6,7 @@ import {
   FindFornecedor,
   UpdateFornecedor,
 } from "../controllers/fornecedoresController";
+import { validId } from "../middlewares/globalMiddleware";
 
 export const fornecedorRoute = Router();
 
@@ -13,6 +14,6 @@ fornecedorRoute.post("/novo", authAdmin, CreateFornecedor);
 
 fornecedorRoute.get("/", FindFornecedor);
 
-fornecedorRoute.patch("/update/:id", authAdmin, UpdateFornecedor);
+fornecedorRoute.patch("/update/:id", authAdmin,validId, UpdateFornecedor);
 
-fornecedorRoute.delete("/delete/:id", authAdmin, DeleteFornecedor);
+fornecedorRoute.delete("/delete/:id", authAdmin,validId, DeleteFornecedor);

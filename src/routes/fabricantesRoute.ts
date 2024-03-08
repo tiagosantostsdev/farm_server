@@ -6,6 +6,7 @@ import {
   FindFabricante,
   UpdateFabricante,
 } from "../controllers/fabricantesController";
+import { validId } from "../middlewares/globalMiddleware";
 
 export const fabricanteRoute = Router();
 
@@ -13,6 +14,6 @@ fabricanteRoute.post("/novo", authAdmin, CreateFabricante);
 
 fabricanteRoute.get("/", FindFabricante);
 
-fabricanteRoute.patch("/update/:id", authAdmin, UpdateFabricante);
+fabricanteRoute.patch("/update/:id", authAdmin, validId, UpdateFabricante);
 
-fabricanteRoute.delete("/delete/:id", authAdmin, DeleteFabricante);
+fabricanteRoute.delete("/delete/:id", authAdmin,validId, DeleteFabricante);

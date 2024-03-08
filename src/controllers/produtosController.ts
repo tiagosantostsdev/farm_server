@@ -107,12 +107,9 @@ export const SearchProdutos = async (
   }
 };
 
-export const UpdateProdutos = async (
-  req: express.Request,
-  res: express.Response
-) => {
+export const UpdateProdutos = async (req: any, res: express.Response) => {
   try {
-    const { id } = req.params as { id: string };
+    const { id } = req;
     const { nome, quantidade, dosagem, descricao, preco } = req.body as {
       nome: string;
       quantidade: number;
@@ -135,12 +132,9 @@ export const UpdateProdutos = async (
   }
 };
 
-export const DeleteProdutos = async (
-  req: express.Request,
-  res: express.Response
-) => {
+export const DeleteProdutos = async (req: any, res: express.Response) => {
   try {
-    const { id } = req.params as { id: string };
+    const { id } = req;
     const produtos = await deleteProduto(id);
     if (!produtos) {
       return res.status(400).send({ message: "Erro ao deletar produtos" });

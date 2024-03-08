@@ -81,11 +81,11 @@ export const FindFuncionario = async (
 };
 
 export const UpdateFuncionario = async (
-  req: express.Request,
+  req: any,
   res: express.Response
 ) => {
   try {
-    const { id } = req.params as { id: string };
+    const { id } = req;
     const { telemovel, endereco } = req.body as { telemovel: string; endereco: string };
     if (!telemovel && !endereco) {
       return res
@@ -103,11 +103,11 @@ export const UpdateFuncionario = async (
 };
 
 export const DeleteFuncionario = async (
-  req: express.Request,
+  req: any,
   res: express.Response
 ) => {
   try {
-    const { id } = req.params as { id: string };
+    const { id } = req;
     const funcionario = await deleteFuncionario(id)
     if(!funcionario){
         return res.status(400).send({message: "Erro ao deletar funcionario"})

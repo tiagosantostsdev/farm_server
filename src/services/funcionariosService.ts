@@ -5,6 +5,8 @@ export const createFuncionario = (values: Record<string, any>) =>
 
 export const findFuncionarios = () => Funcionario.find();
 
+export const findFuncionarioById = (id: string) => Funcionario.findById(id);
+
 export const deleteFuncionario = (id: string) =>
   Funcionario.findOneAndDelete({ _id: id });
 

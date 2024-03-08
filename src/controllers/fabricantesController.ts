@@ -65,11 +65,11 @@ export const FindFabricante = async (
 };
 
 export const UpdateFabricante = async (
-  req: express.Request,
+  req:any,
   res: express.Response
 ) => {
   try {
-    const { id } = req.params as { id: string };
+    const {id}  = req;
     const { nome, telefone, endereco } = req.body as {
       nome: string;
       telefone: string;
@@ -91,11 +91,11 @@ export const UpdateFabricante = async (
 };
 
 export const DeleteFabricante = async (
-  req: express.Request,
+  req: any,
   res: express.Response
 ) => {
   try {
-    const { id } = req.params as { id: string };
+    const { id } = req;
     const fabricante = await deleteFabricantes(id);
     if (!fabricante) {
       return res.status(400).send({ message: "Erro ao deletar fabricante" });
