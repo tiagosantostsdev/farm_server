@@ -5,15 +5,13 @@ export const createProduto = (values: Record<string, any>) =>
 
 export const findProdutos = () => Produto.find();
 
-export const searchProdutos = (codigo: string) =>
-  Produto.find(
-    { codigo: { $regex: `${codigo || ""}`, $options: "i" } }
-  );
+export const searchProdutos = (nome: string) =>
+  Produto.find({ nome: { $regex: `${nome || ""}`, $options: "i" } });
 
 export const deleteProduto = (id: string) =>
   Produto.findOneAndDelete({ _id: id });
 
-export const updateProduto = (
+export const updateProdutoAdmin = (
   id: string,
   nome: string,
   quantidade: number,
@@ -31,3 +29,6 @@ export const updateProduto = (
       preco: preco,
     }
   );
+
+export const updateProdutoCarrinho = (id: string, quantidade: number) =>
+  Produto.findOneAndUpdate({ _id: id }, { quantidade: quantidade });

@@ -8,6 +8,7 @@ import { fabricanteRoute } from "./routes/fabricantesRoute";
 import { fornecedorRoute } from "./routes/fornecedoresRoute";
 import { funcionarioRoute } from "./routes/funcionariosRoute";
 import { produtosRoute } from "./routes/produtosRoute";
+import { carrinhoRoute} from "./routes/carrinhoRoute";
 
 //enviroment variables
 dotenv.config({ path: ".env" });
@@ -29,6 +30,7 @@ app.use("/fabricantes", fabricanteRoute);
 app.use("/fornecedores", fornecedorRoute);
 app.use("/funcionarios", funcionarioRoute);
 app.use("/produtos", produtosRoute);
+app.use("/carrinho", carrinhoRoute)
 
 //Server port
 const port: number = Number(process.env.PORT || 2002);

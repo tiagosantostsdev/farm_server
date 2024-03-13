@@ -25,7 +25,7 @@ export const authAdmin = async (
     jwt.verify(token, secretJWT, async (error, decoded: any) => {
       if (error instanceof Error) {
         console.log({ message: error.message });
-        return res.sendStatus(401);
+        return res.status(401).send({message: error.message});
       }
       const admin = await findAdminById(decoded.id);
       if (!admin || !admin.id) {

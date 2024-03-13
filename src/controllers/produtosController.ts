@@ -4,7 +4,7 @@ import {
   deleteProduto,
   findProdutos,
   searchProdutos,
-  updateProduto,
+  updateProdutoAdmin,
 } from "../services/produtosService";
 
 export const CreateProdutos = async (
@@ -88,13 +88,13 @@ export const SearchProdutos = async (
   res: express.Response
 ) => {
   try {
-    const { codigo } = req.query as { codigo: string; nome: string };
-    if (!codigo) {
+    const { nome } = req.query as { nome: string };
+    if (!nome) {
       return res
         .status(400)
-        .send({ message: "Por favor adicone o codigo do produto" });
+        .send({ message: "Por favor adicione o nome do produto" });
     }
-    const produtos = await searchProdutos(codigo);
+    const produtos = await searchProdutos(nome);
     if (!produtos) {
       return res.status(404).send({ message: "Nenhum produto foi encontrado" });
     }
@@ -122,7 +122,7 @@ export const UpdateProdutos = async (req: any, res: express.Response) => {
         message: "Por favor selecione ao menos um campo para ser alterado",
       });
     }
-    await updateProduto(id, nome, quantidade, dosagem, descricao, preco);
+    await updateProdutoAdmin(id, nome, quantidade, dosagem, descricao, preco);
     res.status(200).send({ message: "Dados alterado com sucesso" });
   } catch (error) {
     if (error instanceof Error) {
