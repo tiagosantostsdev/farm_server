@@ -1,11 +1,13 @@
 import mongoose from "mongoose";
 
 const vendasSchema = new mongoose.Schema({
-  produtos: { type: String, required: true },
-  valor: { type: Number, required: true },
+  nomeCliente: { type: String, required: true },
+  produtos: { type: Array, required: true },
+  valor: { type: Number },
+  total: { type: Number },
   troco: { type: Number },
-  total: { type: Number, required: true },
-  Venda: { type: mongoose.Schema.Types.ObjectId, ref: "vendas" },
+  Funcionario: { type: mongoose.Schema.Types.ObjectId, ref: "funcionarios" },
+  dataVenda: { type: String, required: true },
 });
 
 export const Vendas = mongoose.model("vendas", vendasSchema);

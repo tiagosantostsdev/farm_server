@@ -1,28 +1,101 @@
 import express from "express";
-import { findCarrinho } from "../services/carrinhoService";
-import { createVendas, findVendas } from "../services/vendasService";
+import { deleteCarrinho, findCarrinho } from "../services/carrinhoService";
+import {
+  addProdutos,
+  createVendas,
+  findVendaById,
+  findVendas,
+  updateVendaCalc,
+} from "../services/vendasService";
 
-export const CreateVendas = async (
+export const CreateVendas = async (req: any, res: express.Response) => {
+  try {
+    const { funcionarioId } = req;
+    const { nomeCliente } = req.body as {
+      nomeCliente: string;
+    };
+    if (!nomeCliente) {
+      return res
+        .status(400)
+        .send({ message: "Campo nome de cliente obrigatório" });
+    }
+    const date = new Date();
+
+    const Vendas = await createVendas({
+      nomeCliente: nomeCliente,
+      dataVenda: date.toLocaleString(),
+      Funcionario: funcionarioId,
+    });
+    if (!Vendas) {
+      return res
+        .status(400)
+        .send({ message: "Não foi possivel efectuar Venda" });
+    }
+    res.status(200).send({ message: "Dados inseriodos, actualize por favor" });
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log({ message: error.message });
+      return res.status(500).send({ message: error.message });
+    }
+  }
+};
+
+export const UpdateVendasById = async (
   req: express.Request,
   res: express.Response
-) => {
-  try {
-    const Carrinho = await findCarrinho();
-
-    Carrinho.map((item) =>
-      compra({
-        produtos: item.nome,
+  ) => {
+    try {
+      const { id } = req.params as { id: string };
+      if (!id) {
+        return res
+        .status(400)
+        .send({ message: "Insira o id de venda por favor" });
+      }
+      const { valor } = req.body as { valor: number };
+      if (!valor) {
+        return res.status(400).send("Por favor adicione o valor");
+      }
+      let total: number = 0;
+      
+    const carrinho = await findCarrinho();
+    carrinho.map((item) =>
+      getProdutos({
+        id: item.id,
+        nome: item.nome,
+        quantidade: item.quantidade,
+        descricao: item.descricao,
+        dosagem: item.dosagem,
         total: item.total,
       })
     );
+    async function getProdutos(params: Record<string, any>) {
+      const produtos = await addProdutos(
+        id,
+        params.nome,
+        params.quantidade,
+        params.descricao,
+        params.dosagem,
+        params.total
+      );
+      await deleteCarrinho(params.id);
 
-    async function compra(params: Record<string, any>) {
-      const { valor } = req.body as { valor: number };
-      if (!valor) {
-        return res.status(400).send({ message: "Adicione o valor por favor" });
+      if (!produtos) {
+        return res
+          .status(400)
+          .send({ message: "Falha ao adicionar produtos para venda" });
       }
+    }
 
-      let total: number = 0;
+    const calc = await findVendaById(id);
+    const produtos = calc?.produtos;
+
+    produtos.map((item) =>
+      getTotal({
+        total: item.total,
+      })
+    );
+    
+    async function getTotal(params: Record<string, any>) {
       total += params.total;
 
       if (valor < total) {
@@ -30,21 +103,12 @@ export const CreateVendas = async (
       }
 
       let troco: number = valor - total;
-
-      const Vendas = await createVendas({
-        produtos: params.produtos,
-        total: total,
-        valor: valor,
-        troco: troco,
-      });
-
-      if (!Vendas) {
-        return res
-          .status(400)
-          .send({ message: "Não foi possivel efectuar compra" });
-      }
-      res.status(200).send({ message: "Compra efectuada com sucesso" });
+      await updateVendaCalc(id, valor, total, troco);
     }
+
+    return res
+      .status(200)
+      .send({ message: "Produtos actualizados e vendidos" });
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });
@@ -60,7 +124,7 @@ export const FindVendas = async (
   try {
     const Vendas = await findVendas();
     if (Vendas.length === 0) {
-      return res.status(404).send({ message: "Nenhuma compra registrada" });
+      return res.status(404).send({ message: "Nenhuma Venda registrada" });
     }
     res.status(200).send(Vendas);
   } catch (error) {

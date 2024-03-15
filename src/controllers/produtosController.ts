@@ -13,7 +13,6 @@ export const CreateProdutos = async (
 ) => {
   try {
     const {
-      codigo,
       nome,
       quantidade,
       dosagem,
@@ -22,7 +21,6 @@ export const CreateProdutos = async (
       fornecedor,
       fabricante,
     } = req.body as {
-      codigo: string;
       nome: string;
       quantidade: number;
       dosagem: string;
@@ -32,7 +30,6 @@ export const CreateProdutos = async (
       fabricante: string;
     };
     if (
-      !codigo ||
       !nome ||
       !quantidade ||
       !dosagem ||
@@ -44,7 +41,6 @@ export const CreateProdutos = async (
       return res.status(400).send({ message: "Please submit all field" });
     }
     const produtos = await createProduto({
-      codigo,
       nome,
       quantidade,
       dosagem,
@@ -71,7 +67,7 @@ export const FindProdutos = async (
 ) => {
   try {
     const produtos = await findProdutos();
-    if (!produtos) {
+    if (produtos.length === 0) {
       return res.status(404).send({ message: "Nenhum produto foi encontrado" });
     }
     res.status(200).send(produtos);
@@ -117,7 +113,7 @@ export const UpdateProdutos = async (req: any, res: express.Response) => {
       descricao: string;
       preco: string;
     };
-    if (!descricao && !dosagem && !nome && !descricao && !preco) {
+    if (!nome && !quantidade && !dosagem && !descricao && !preco) {
       return res.status(400).send({
         message: "Por favor selecione ao menos um campo para ser alterado",
       });

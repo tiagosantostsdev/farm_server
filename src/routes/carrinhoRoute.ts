@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { CreateCarrinho, DeleteCarrinho, FindCarrinho, UpdateCarrinho } from "../controllers/CarrinhoController";
+import { CreateCarrinho, DeleteCarrinho, FindCarrinho, UpdateCarrinho } from "./../controllers/carrinhoController";
 
 export const carrinhoRoute = Router()
 

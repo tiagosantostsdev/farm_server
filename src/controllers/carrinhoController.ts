@@ -31,10 +31,12 @@ export const CreateCarrinho = async (
 
     produtos.map((item) =>
       Carrinho({
-        id: item._id,
+        nome: item.nome,
+        id: item.id,
+        descricao: item.descricao,
+        dosagem: item.dosagem,
         quantidade: item.quantidade,
         preco: item.preco,
-        nome: item.nome,
       })
     );
 
@@ -60,8 +62,10 @@ export const CreateCarrinho = async (
 
       const venda = await createCarrinho({
         nome: params.nome,
-        Produto: params.id,
+        Produto:params.id,
         quantidade: quantidade,
+        descricao: params.descricao,
+        dosagem: params.dosagem,
         total: total,
       });
       await updateProdutoCarrinho(params.id, (params.quantidade -= quantidade));
@@ -85,7 +89,7 @@ export const FindCarrinho = async (
   try {
     const venda = await findCarrinho();
     if (venda.length === 0) {
-      return res.status(400).send({ message: "Nenhum produsto encontrado" });
+      return res.status(400).send({ message: "Nenhum produto encontrado" });
     }
 
     res.status(200).send(venda);

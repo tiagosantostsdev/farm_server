@@ -6,6 +6,8 @@ const carrinhoSchema = new mongoose.Schema({
     { type: mongoose.Schema.Types.ObjectId, ref: "produtos", required: true },
   ],
   quantidade: { type: Number, required: true },
+  descricao: {type: String, required:true},
+  dosagem: {type: String, required:true},
   total: { type: Number, required: true },
   data: { type: Date, default: Date.now },
 });
