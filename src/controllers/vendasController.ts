@@ -43,20 +43,20 @@ export const CreateVendas = async (req: any, res: express.Response) => {
 export const UpdateVendasById = async (
   req: express.Request,
   res: express.Response
-  ) => {
-    try {
-      const { id } = req.params as { id: string };
-      if (!id) {
-        return res
+) => {
+  try {
+    const { id } = req.params as { id: string };
+    if (!id) {
+      return res
         .status(400)
         .send({ message: "Insira o id de venda por favor" });
-      }
-      const { valor } = req.body as { valor: number };
-      if (!valor) {
-        return res.status(400).send("Por favor adicione o valor");
-      }
-      let total: number = 0;
-      
+    }
+    const { valor } = req.body as { valor: number };
+    if (!valor) {
+      return res.status(400).send("Por favor adicione o valor");
+    }
+    let total: number = 0;
+
     const carrinho = await findCarrinho();
     carrinho.map((item) =>
       getProdutos({
@@ -94,15 +94,18 @@ export const UpdateVendasById = async (
         total: item.total,
       })
     );
-    
+
+    if (valor < total || valor - total < 0) {
+      return res.status(400).send({ message: "Valor insuficiente" });
+    }
+
     async function getTotal(params: Record<string, any>) {
       total += params.total;
-
-      if (valor < total) {
-        return res.status(400).send({ message: "Valor insuficiente" });
+      let troco: number;
+      if (valor - total< 0) {
+        return troco = 0;
       }
-
-      let troco: number = valor - total;
+      troco = valor - total;
       await updateVendaCalc(id, valor, total, troco);
     }
 

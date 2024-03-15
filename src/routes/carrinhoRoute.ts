@@ -1,10 +1,11 @@
 import { Router } from "express";
 
 import { CreateCarrinho, DeleteCarrinho, FindCarrinho, UpdateCarrinho } from "./../controllers/carrinhoController";
+import { authFuncionario } from "../middlewares/authMiddleware";
 
 export const carrinhoRoute = Router()
 
-carrinhoRoute.post("/create", CreateCarrinho)
+carrinhoRoute.post("/create", authFuncionario, CreateCarrinho)
 
 carrinhoRoute.get("/", FindCarrinho)
 
