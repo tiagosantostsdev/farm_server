@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.updateFabricantes = exports.deleteFabricantes = exports.findFabricantes = exports.createFabricantes = void 0;
+const fabricanteModel_1 = require("../models/fabricanteModel");
+const createFabricantes = (values) => fabricanteModel_1.Fabricantes.create(values);
+exports.createFabricantes = createFabricantes;
+const findFabricantes = () => fabricanteModel_1.Fabricantes.find();
+exports.findFabricantes = findFabricantes;
+const deleteFabricantes = (id) => fabricanteModel_1.Fabricantes.findOneAndDelete({ _id: id });
+exports.deleteFabricantes = deleteFabricantes;
+const updateFabricantes = (id, nome, telefone, endereco) => fabricanteModel_1.Fabricantes.findOneAndUpdate({ _id: id }, { nome: nome, telefone: telefone, endereco: endereco });
+exports.updateFabricantes = updateFabricantes;

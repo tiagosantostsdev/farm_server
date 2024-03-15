@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.funcionarioRoute = void 0;
+const express_1 = require("express");
+const authMiddleware_1 = require("../middlewares/authMiddleware");
+const funcionariosController_1 = require("../controllers/funcionariosController");
+const globalMiddleware_1 = require("../middlewares/globalMiddleware");
+exports.funcionarioRoute = (0, express_1.Router)();
+exports.funcionarioRoute.post("/novo", authMiddleware_1.authAdmin, funcionariosController_1.CreateFuncionario);
+exports.funcionarioRoute.get("/", funcionariosController_1.FindFuncionario);
+exports.funcionarioRoute.patch("/update/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, funcionariosController_1.UpdateFuncionario);
+exports.funcionarioRoute.delete("/delete/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, funcionariosController_1.DeleteFuncionario);

@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.produtosRoute = void 0;
+const express_1 = require("express");
+const authMiddleware_1 = require("../middlewares/authMiddleware");
+const produtosController_1 = require("../controllers/produtosController");
+const globalMiddleware_1 = require("../middlewares/globalMiddleware");
+exports.produtosRoute = (0, express_1.Router)();
+exports.produtosRoute.post("/novo", authMiddleware_1.authAdmin, produtosController_1.CreateProdutos);
+exports.produtosRoute.get("/", produtosController_1.FindProdutos);
+exports.produtosRoute.get("/search", produtosController_1.SearchProdutos);
+exports.produtosRoute.patch("/update/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, produtosController_1.UpdateProdutos);
+exports.produtosRoute.delete("/delete/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, produtosController_1.DeleteProdutos);

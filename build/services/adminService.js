@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.updateAdmin = exports.findAdminById = exports.findAdmin = exports.createAdmin = void 0;
+const adminModel_1 = require("../models/adminModel");
+const createAdmin = (values) => adminModel_1.Admin.create(values);
+exports.createAdmin = createAdmin;
+const findAdmin = () => adminModel_1.Admin.find();
+exports.findAdmin = findAdmin;
+const findAdminById = (id) => adminModel_1.Admin.findById(id);
+exports.findAdminById = findAdminById;
+const updateAdmin = (id, admin, avatar) => adminModel_1.Admin.findOneAndUpdate({ _id: id }, { admin: admin, avatar: avatar });
+exports.updateAdmin = updateAdmin;

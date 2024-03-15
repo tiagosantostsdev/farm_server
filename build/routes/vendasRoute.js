@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.vendasRoute = void 0;
+const express_1 = require("express");
+const authMiddleware_1 = require("../middlewares/authMiddleware");
+const vendasController_1 = require("../controllers/vendasController");
+exports.vendasRoute = (0, express_1.Router)();
+exports.vendasRoute.post("/create", authMiddleware_1.authFuncionario, vendasController_1.CreateVendas);
+exports.vendasRoute.patch("/update/:id", authMiddleware_1.authFuncionario, vendasController_1.UpdateVendasById);
+exports.vendasRoute.get("/", vendasController_1.FindVendas);
