@@ -1,1 +1,1 @@
-export declare const dbConnection: () => void;
+export declare const dbConnection: () => Promise<void>;
