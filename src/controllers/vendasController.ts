@@ -100,9 +100,11 @@ export const UpdateVendasById = async (
     }
 
     async function getTotal(params: Record<string, any>) {
-      total += params.total;
+      total =+ params.total;
+
       let troco: number;
-      if (valor - total< 0) {
+      
+      if (valor - total < 0) {
         return troco = 0;
       }
       troco = valor - total;
