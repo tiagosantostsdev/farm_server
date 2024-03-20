@@ -101,22 +101,18 @@ export const UpdateVendasById = async (
       })
     );
 
-    
-    async function getTotal(params: Record<string, any>) {
-      total = total + params.total;
-      let troco: number = 0;
+    if (valor < total || valor - total < 0) {
+      return res.status(400).send({ message: "Valor insuficiente" });
+    }
 
-      if (valor < total || valor - total < 0) {
-        troco = 0;
-        return res.status(400).send({ message: "Valor insuficiente" });
-      }
+    async function getTotal(params: Record<string, any>) {
+      total += params.total;
+      let troco: number = 0;
       troco = valor - total;
       await updateVendaCalc(id, valor, total, troco);
     }
 
-    return res
-      .status(200)
-      .send({ message: "Produtos actualizados e vendidos" });
+    res.status(200).send({ message: "Produtos actualizados e vendidos" });
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });
