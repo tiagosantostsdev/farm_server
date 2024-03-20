@@ -10,7 +10,7 @@ const vendasSchema = new mongoose_1.default.Schema({
     produtos: { type: Array, required: true },
     valor: { type: Number },
     total: { type: Number },
-    troco: { type: Number },
+    troco: { type: Number, default: 0 },
     Funcionario: { type: mongoose_1.default.Schema.Types.ObjectId, ref: "funcionarios" },
     dataVenda: { type: String, required: true },
 });

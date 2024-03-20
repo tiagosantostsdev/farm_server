@@ -54,8 +54,13 @@ const UpdateVendasById = (req, res) => __awaiter(void 0, void 0, void 0, functio
         if (!valor) {
             return res.status(400).send("Por favor adicione o valor");
         }
-        let total = 0;
+        var total = 0;
         const carrinho = yield (0, carrinhoService_1.findCarrinho)();
+        if (carrinho.length === 0) {
+            return res
+                .status(400)
+                .send({ message: "Sem produtos registrados na lista" });
+        }
         carrinho.map((item) => getProdutos({
             id: item.id,
             nome: item.nome,
@@ -76,7 +81,7 @@ const UpdateVendasById = (req, res) => __awaiter(void 0, void 0, void 0, functio
             });
         }
         const calc = yield (0, vendasService_1.findVendaById)(id);
-        const produtos = calc === null || calc === void 0 ? void 0 : calc.produtos;
+        const produtos = (calc === null || calc === void 0 ? void 0 : calc.produtos) || [];
         produtos.map((item) => getTotal({
             total: item.total,
         }));
@@ -85,10 +90,10 @@ const UpdateVendasById = (req, res) => __awaiter(void 0, void 0, void 0, functio
         }
         function getTotal(params) {
             return __awaiter(this, void 0, void 0, function* () {
-                total += params.total;
+                total = total + params.total;
                 let troco;
                 if (valor - total < 0) {
-                    return troco = 0;
+                    return (troco = 0);
                 }
                 troco = valor - total;
                 yield (0, vendasService_1.updateVendaCalc)(id, valor, total, troco);

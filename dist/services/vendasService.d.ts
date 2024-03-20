@@ -26,18 +26,18 @@
 export declare const createVendas: (values: Record<string, any>) => Promise<import("mongoose").Document<unknown, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
@@ -45,180 +45,180 @@ export declare const createVendas: (values: Record<string, any>) => Promise<impo
 export declare const addProdutos: (id: string, nome: string, quantidade: number, descricao: string, dosagem: string, total: number) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }, "findOneAndUpdate">;
 export declare const updateVendaCalc: (id: string, valor: number, total: number, troco: number) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }, "findOneAndUpdate">;
 export declare const findVendaById: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }, "findOne">;
 export declare const findVendas: () => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 })[], import("mongoose").Document<unknown, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
     produtos: any[];
     nomeCliente: string;
+    troco: number;
     dataVenda: string;
     total?: number | null | undefined;
     valor?: number | null | undefined;
-    troco?: number | null | undefined;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }, "find">;

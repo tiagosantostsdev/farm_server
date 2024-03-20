@@ -17,7 +17,7 @@ const CreateAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         if (!admin || !email || !password) {
             return res.status(400).send({ message: "Please submit all field" });
         }
-        const adm = (0, adminService_1.createAdmin)({ admin, email, password, avatar });
+        const adm = yield (0, adminService_1.createAdmin)({ admin, email, password, avatar });
         if (!adm) {
             return res
                 .status(400)
