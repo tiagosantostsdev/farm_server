@@ -55,18 +55,20 @@ export const UpdateVendasById = async (
     if (!valor) {
       return res.status(400).send("Por favor adicione o valor");
     }
-    let total: number = 0;
-
+    
     const carrinho = await findCarrinho();
+    if(carrinho.length ===0){
+      return res.status(400).send({message: "Sem produtos registrados na lista"})
+    }
     carrinho.map((item) =>
-      getProdutos({
-        id: item.id,
-        nome: item.nome,
-        quantidade: item.quantidade,
-        descricao: item.descricao,
-        dosagem: item.dosagem,
-        total: item.total,
-      })
+    getProdutos({
+      id: item.id,
+      nome: item.nome,
+      quantidade: item.quantidade,
+      descricao: item.descricao,
+      dosagem: item.dosagem,
+      total: item.total,
+    })
     );
     async function getProdutos(params: Record<string, any>) {
       const produtos = await addProdutos(
@@ -81,18 +83,19 @@ export const UpdateVendasById = async (
 
       if (!produtos) {
         return res
-          .status(400)
-          .send({ message: "Falha ao adicionar produtos para venda" });
+        .status(400)
+        .send({ message: "Falha ao adicionar produtos para venda" });
       }
     }
-
+    
+    let total: number = 0;
     const calc = await findVendaById(id);
-    const produtos = calc?.produtos;
-
+    const produtos = calc?.produtos || [];
+    
     produtos.map((item) =>
-      getTotal({
-        total: item.total,
-      })
+    getTotal({
+      total: item.total,
+    })
     );
 
     if (valor < total || valor - total < 0) {
