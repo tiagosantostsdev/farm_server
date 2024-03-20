@@ -100,7 +100,7 @@ export const UpdateVendasById = async (
     }
 
     async function getTotal(params: Record<string, any>) {
-      total =+ params.total;
+      total = total + params.total;
 
       let troco: number;
       
