@@ -57,9 +57,14 @@ export const UpdateVendasById = async (
     const calc = await findVendaById(id);
     const produtos = calc?.produtos || [];
 
-    const total: number = produtos.reduce((accumulator, currentValue) => {
-      return accumulator + currentValue.total;
-    }, 0);
+    let total: number = 0;
+    produtos.forEach((item) => {
+      total += item.total;
+    });
+
+    // const total: number = produtos.reduce((accumulator, currentValue) => {
+    //   return accumulator + currentValue.total;
+    // }, 0);
 
     if (valor < total || valor - total < 0) {
       return res.status(400).send({ message: "Valor insuficiente" });
@@ -72,7 +77,7 @@ export const UpdateVendasById = async (
         .status(400)
         .send({ message: "Falha ao vender e actualizar produtos" });
     }
-    
+
     const carrinho = await findCarrinho();
     if (carrinho.length === 0) {
       return res
