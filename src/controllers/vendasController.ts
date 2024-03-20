@@ -57,7 +57,7 @@ export const UpdateVendasById = async (
     const calc = await findVendaById(id);
     const produtos = calc?.produtos || [];
 
-    const total: number = produtos.reduce((accumulator, currentValue) => {
+    const total: number = await produtos.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.total;
     }, 0);
 
