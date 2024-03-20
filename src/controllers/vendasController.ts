@@ -56,7 +56,7 @@ export const UpdateVendasById = async (
       return res.status(400).send("Por favor adicione o valor");
     }
 
-    var total: number = 0;
+    let total: number = 0;
 
     const carrinho = await findCarrinho();
     if (carrinho.length === 0) {
@@ -101,19 +101,16 @@ export const UpdateVendasById = async (
       })
     );
 
-    if (valor < total || valor - total < 0) {
-      return res.status(400).send({ message: "Valor insuficiente" });
-    }
-
+    
     async function getTotal(params: Record<string, any>) {
       total = total + params.total;
+      let troco: number = 0;
 
-      let troco: number;
-      if (valor - total < 0) {
-        return res.status(400).send({message: "Valor insuficiente"})
+      if (valor < total || valor - total < 0) {
+        troco = 0;
+        return res.status(400).send({ message: "Valor insuficiente" });
       }
       troco = valor - total;
-
       await updateVendaCalc(id, valor, total, troco);
     }
 
