@@ -57,7 +57,7 @@ export const UpdateVendasById = async (
     const calc = await findVendaById(id);
     const produtos = calc?.produtos || [];
 
-    let total: number = 0;
+    let total: number = produtos[4];
     produtos.forEach((item) => {
       total += item.total;
     });
