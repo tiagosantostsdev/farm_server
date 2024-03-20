@@ -110,7 +110,7 @@ export const UpdateVendasById = async (
 
       let troco: number;
       if (valor - total < 0) {
-        return (troco = 0);
+        return res.status(400).send({message: "Valor insuficiente"})
       }
       troco = valor - total;
 
