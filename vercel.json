@@ -8,8 +8,8 @@
     ],
     "routes":[
         {
-            "dist":"(.*)",
-            "dest":"/dist/index.js"
+            "src":"(.*)",
+            "dest":"/src/index.ts"
         }
     ]
 }
