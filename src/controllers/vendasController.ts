@@ -46,17 +46,24 @@ export const UpdateVendasById = async (
 ) => {
   try {
     const { id } = req.params as { id: string };
-    if (!id) {
+    const { valor } = req.body as { valor: number };
+
+    if (!id || !valor) {
       return res
         .status(400)
-        .send({ message: "Insira o id de venda por favor" });
-    }
-    const { valor } = req.body as { valor: number };
-    if (!valor) {
-      return res.status(400).send("Por favor adicione o valor");
+        .send({ message: "Id de venda e Valor obrigatório" });
     }
 
-    // let total: number = 0;
+    const calc = await findVendaById(id);
+    const produtos = calc?.produtos || [];
+
+    const total: number = produtos.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.total;
+    }, 0);
+
+    if (total > valor || valor - total < 0) {
+      return res.status(400).send({ message: "Valor insuficiente" });
+    }
 
     const carrinho = await findCarrinho();
     if (carrinho.length === 0) {
@@ -92,27 +99,8 @@ export const UpdateVendasById = async (
       }
     }
 
-    const calc = await findVendaById(id);
-    const produtos = calc?.produtos || [];
-
-    // produtos.map((item) =>
-    //   getTotal({
-    //     total: item.total,
-    //   })
-    // );
-
-    const total = produtos.reduce((accumulator, currentValue) => {
-      return accumulator + currentValue.total;
-    }, 0);
-
-    if (valor < total || valor - total < 0) {
-      return res.status(400).send({ message: "Valor insuficiente" });
-    }
-
-    let troco: number = 0;
-    troco = valor - total;
+    let troco: number = valor - total;
     const update = await updateVendaCalc(id, valor, total, troco);
-
     if (!update) {
       return res
         .status(400)

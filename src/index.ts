@@ -35,7 +35,7 @@ app.use("/carrinho", carrinhoRoute)
 app.use("/vendas", vendasRoute)
 
 //Server port
-const port: number = Number(process.env.PORT || 2002);
+const port: number = Number(process.env.PORT || 3000);
 app.listen(port, () => {
   console.log({ message: "Server running...", port: port });
 });
