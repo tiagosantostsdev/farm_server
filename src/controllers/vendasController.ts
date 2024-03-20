@@ -57,12 +57,9 @@ export const UpdateVendasById = async (
     const calc = await findVendaById(id);
     const produtos = calc?.produtos || [];
 
-    const totalSum: number = await produtos.reduce((accumulator, currentValue) => {
+    let total: number = produtos.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.total;
     }, 0);
-
-    let total:number = 0;
-    total += totalSum;
 
     if (total > valor || valor - total < 0) {
       return res.status(400).send({ message: "Valor insuficiente" });
