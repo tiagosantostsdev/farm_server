@@ -15,7 +15,7 @@ export const CreateAdmin = async (
     if (!admin || !email || !password) {
       return res.status(400).send({ message: "Please submit all field" });
     }
-    const adm = createAdmin({ admin, email, password, avatar });
+    const adm = await createAdmin({ admin, email, password, avatar });
     if (!adm) {
       return res
         .status(400)
