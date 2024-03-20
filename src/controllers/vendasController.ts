@@ -31,7 +31,7 @@ export const CreateVendas = async (req: any, res: express.Response) => {
         .status(400)
         .send({ message: "Não foi possivel efectuar Venda" });
     }
-    res.status(200).send({ message: "Dados inseriodos, actualize por favor" });
+    res.status(200).send(Vendas.id);
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });
@@ -47,43 +47,15 @@ export const UpdateVendasById = async (
   try {
     const { id } = req.params as { id: string };
     const { valor } = req.body as { valor: number };
+    let total:number = 0;
 
     if (!id || !valor) {
       return res
         .status(400)
         .send({ message: "Id de venda e Valor obrigatório" });
     }
-
-    const calc = await findVendaById(id);
-    const produtos = calc?.produtos || [];
-
-    let total: number = produtos[4];
-    produtos.forEach((item) => {
-      total += item.total;
-    });
-
-    // const total: number = produtos.reduce((accumulator, currentValue) => {
-    //   return accumulator + currentValue.total;
-    // }, 0);
-
-    if (valor < total || valor - total < 0) {
-      return res.status(400).send({ message: "Valor insuficiente" });
-    }
-
-    let troco: number = valor - total;
-    const update = await updateVendaCalc(id, valor, total, troco);
-    if (!update) {
-      return res
-        .status(400)
-        .send({ message: "Falha ao vender e actualizar produtos" });
-    }
-
+    
     const carrinho = await findCarrinho();
-    if (carrinho.length === 0) {
-      return res
-        .status(400)
-        .send({ message: "Sem produtos registrados na lista" });
-    }
     carrinho.map((item) =>
       getProdutos({
         id: item.id,
@@ -110,6 +82,25 @@ export const UpdateVendasById = async (
           .status(400)
           .send({ message: "Falha ao adicionar produtos para venda" });
       }
+    }
+
+    const calc = await findVendaById(id);
+    const produtos = calc?.produtos || [];
+    
+    produtos.forEach((item)=>{
+      total = total + item.total
+    })
+    
+    if (valor < total || valor - total < 0) {
+      return res.status(400).send({ message: "Valor insuficiente" });
+    }
+    
+    let troco: number = valor - total;
+    const update = await updateVendaCalc(id, valor, total, troco);
+    if (!update) {
+      return res
+        .status(400)
+        .send({ message: "Falha ao vender e actualizar produtos" });
     }
 
     res.status(200).send({ message: "Produtos actualizados e vendidos" });
