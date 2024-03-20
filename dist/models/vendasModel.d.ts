@@ -25,53 +25,53 @@
 import mongoose from "mongoose";
 export declare const Vendas: mongoose.Model<{
     produtos: any[];
+    total: number;
     nomeCliente: string;
+    valor: number;
     troco: number;
     dataVenda: string;
-    total?: number | null | undefined;
-    valor?: number | null | undefined;
     Funcionario?: mongoose.Types.ObjectId | null | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     produtos: any[];
+    total: number;
     nomeCliente: string;
+    valor: number;
     troco: number;
     dataVenda: string;
-    total?: number | null | undefined;
-    valor?: number | null | undefined;
     Funcionario?: mongoose.Types.ObjectId | null | undefined;
 }> & {
     produtos: any[];
+    total: number;
     nomeCliente: string;
+    valor: number;
     troco: number;
     dataVenda: string;
-    total?: number | null | undefined;
-    valor?: number | null | undefined;
     Funcionario?: mongoose.Types.ObjectId | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
     produtos: any[];
+    total: number;
     nomeCliente: string;
+    valor: number;
     troco: number;
     dataVenda: string;
-    total?: number | null | undefined;
-    valor?: number | null | undefined;
     Funcionario?: mongoose.Types.ObjectId | null | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     produtos: any[];
+    total: number;
     nomeCliente: string;
+    valor: number;
     troco: number;
     dataVenda: string;
-    total?: number | null | undefined;
-    valor?: number | null | undefined;
     Funcionario?: mongoose.Types.ObjectId | null | undefined;
 }>> & mongoose.FlatRecord<{
     produtos: any[];
+    total: number;
     nomeCliente: string;
+    valor: number;
     troco: number;
     dataVenda: string;
-    total?: number | null | undefined;
-    valor?: number | null | undefined;
     Funcionario?: mongoose.Types.ObjectId | null | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;

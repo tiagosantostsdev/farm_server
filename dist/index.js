@@ -34,7 +34,7 @@ app.use("/produtos", produtosRoute_1.produtosRoute);
 app.use("/carrinho", carrinhoRoute_1.carrinhoRoute);
 app.use("/vendas", vendasRoute_1.vendasRoute);
 //Server port
-const port = Number(process.env.PORT || 2002);
+const port = Number(process.env.PORT || 3000);
 app.listen(port, () => {
     console.log({ message: "Server running...", port: port });
 });

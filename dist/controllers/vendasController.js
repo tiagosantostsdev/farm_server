@@ -32,7 +32,7 @@ const CreateVendas = (req, res) => __awaiter(void 0, void 0, void 0, function* (
                 .status(400)
                 .send({ message: "Não foi possivel efectuar Venda" });
         }
-        res.status(200).send({ message: "Dados inseriodos, actualize por favor" });
+        res.status(200).send(Vendas.id);
     }
     catch (error) {
         if (error instanceof Error) {
@@ -45,22 +45,14 @@ exports.CreateVendas = CreateVendas;
 const UpdateVendasById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        if (!id) {
-            return res
-                .status(400)
-                .send({ message: "Insira o id de venda por favor" });
-        }
         const { valor } = req.body;
-        if (!valor) {
-            return res.status(400).send("Por favor adicione o valor");
-        }
-        var total = 0;
-        const carrinho = yield (0, carrinhoService_1.findCarrinho)();
-        if (carrinho.length === 0) {
+        let total = 0;
+        if (!id || !valor) {
             return res
                 .status(400)
-                .send({ message: "Sem produtos registrados na lista" });
+                .send({ message: "Id de venda e Valor obrigatório" });
         }
+        const carrinho = yield (0, carrinhoService_1.findCarrinho)();
         carrinho.map((item) => getProdutos({
             id: item.id,
             nome: item.nome,
@@ -82,26 +74,20 @@ const UpdateVendasById = (req, res) => __awaiter(void 0, void 0, void 0, functio
         }
         const calc = yield (0, vendasService_1.findVendaById)(id);
         const produtos = (calc === null || calc === void 0 ? void 0 : calc.produtos) || [];
-        produtos.map((item) => getTotal({
-            total: item.total,
-        }));
+        produtos.forEach((item) => {
+            total = total + item.total;
+        });
         if (valor < total || valor - total < 0) {
             return res.status(400).send({ message: "Valor insuficiente" });
         }
-        function getTotal(params) {
-            return __awaiter(this, void 0, void 0, function* () {
-                total = total + params.total;
-                let troco;
-                if (valor - total < 0) {
-                    return (troco = 0);
-                }
-                troco = valor - total;
-                yield (0, vendasService_1.updateVendaCalc)(id, valor, total, troco);
-            });
+        let troco = valor - total;
+        const update = yield (0, vendasService_1.updateVendaCalc)(id, valor, total, troco);
+        if (!update) {
+            return res
+                .status(400)
+                .send({ message: "Falha ao vender e actualizar produtos" });
         }
-        return res
-            .status(200)
-            .send({ message: "Produtos actualizados e vendidos" });
+        res.status(200).send({ message: "Produtos actualizados e vendidos" });
     }
     catch (error) {
         if (error instanceof Error) {
