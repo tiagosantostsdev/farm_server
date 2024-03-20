@@ -56,7 +56,7 @@ export const UpdateVendasById = async (
       return res.status(400).send("Por favor adicione o valor");
     }
 
-    let total: number = 0;
+    // let total: number = 0;
 
     const carrinho = await findCarrinho();
     if (carrinho.length === 0) {
@@ -95,23 +95,29 @@ export const UpdateVendasById = async (
     const calc = await findVendaById(id);
     const produtos = calc?.produtos || [];
 
-    produtos.map((item) =>
-      getTotal({
-        total: item.total,
-      })
-    );
+    // produtos.map((item) =>
+    //   getTotal({
+    //     total: item.total,
+    //   })
+    // );
+
+    const total = produtos.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.total;
+    }, 0);
 
     if (valor < total || valor - total < 0) {
       return res.status(400).send({ message: "Valor insuficiente" });
     }
 
-    async function getTotal(params: Record<string, any>) {
-      total += params.total;
-      let troco: number = 0;
-      troco = valor - total;
-      await updateVendaCalc(id, valor, total, troco);
-    }
+    let troco: number = 0;
+    troco = valor - total;
+    const update = await updateVendaCalc(id, valor, total, troco);
 
+    if (!update) {
+      return res
+        .status(400)
+        .send({ message: "Falha ao vender e actualizar produtos" });
+    }
     res.status(200).send({ message: "Produtos actualizados e vendidos" });
   } catch (error) {
     if (error instanceof Error) {
