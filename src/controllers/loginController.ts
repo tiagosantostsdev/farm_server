@@ -34,7 +34,7 @@ export const AdminLogin = async (
         .send({ messaage: "Usuário ou palavra passe inválido" });
     }
     const token = generateToken(adm.id);
-    res.status(200).send(token);
+    res.status(200).send({token: token});
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });
@@ -69,7 +69,7 @@ export const FuncionarioLogin = async (
         .send({ message: "Usuario ou senha de usuário inválido" });
     }
     const token = generateToken(funcionario.id);
-    res.status(200).send(token);
+    res.status(200).send({token: token});
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });

@@ -3,6 +3,7 @@ import express from "express";
 import {
   createAdmin,
   findAdmin,
+  findAdminById,
   findOneAdmin,
   updateAdmin,
 } from "../services/adminService";
@@ -62,6 +63,22 @@ export const FindAdmin = async (
     }
   }
 };
+
+export const FindAdminById = async (req:any, res:express.Response) => {
+  try {
+    const {adminId} = req;
+    const admin = await findAdminById(adminId);
+    if(!admin){
+      return res.status(400).send({message: "Administrador não encoontrado"})
+    }
+    res.status(200).send(admin)
+  } catch (error) {
+    if(error instanceof Error){
+      console.log({message: error.message})
+      return res.status(500).send({message: error.message})
+    }
+  }
+}
 
 export const UpdateAdmin = async (
   req: express.Request,
