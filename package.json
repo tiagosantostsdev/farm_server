@@ -9,7 +9,7 @@
     "build": "tsc"
   },
   "author": "Tiago Santos",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
