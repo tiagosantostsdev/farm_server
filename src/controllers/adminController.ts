@@ -1,5 +1,12 @@
+import bcrypt from "bcrypt";
 import express from "express";
-import { createAdmin, findAdmin, updateAdmin } from "../services/adminService";
+import {
+  createAdmin,
+  findAdmin,
+  findOneAdmin,
+  updateAdmin,
+} from "../services/adminService";
+import { sentEmailVerification } from "./configController";
 
 export const CreateAdmin = async (
   req: express.Request,
@@ -15,7 +22,13 @@ export const CreateAdmin = async (
     if (!admin || !email || !password) {
       return res.status(400).send({ message: "Please submit all field" });
     }
-    const adm = await createAdmin({ admin, email, password, avatar });
+    const hash = bcrypt.hashSync(password, 10);
+    const adm = await createAdmin({
+      admin: admin,
+      email: email,
+      password: hash,
+      avatar: avatar,
+    });
     if (!adm) {
       return res
         .status(400)
@@ -64,6 +77,67 @@ export const UpdateAdmin = async (
     }
     await updateAdmin(id, admin, avatar);
     res.status(200).send({ message: "Admin has been updated successful" });
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log({ message: error.message });
+      return res.status(500).send({ message: error.message });
+    }
+  }
+};
+
+export const SolicitarRedefinicaoSenha = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { email } = req.body as { email: string };
+    if (!email) {
+      return res
+        .status(400)
+        .send({ message: "Email de administrador necessário" });
+    }
+
+    const admin = await findOneAdmin(email);
+    if (!admin) {
+      return res.status(400).send({ message: "Administrador não encontrado" });
+    }
+
+    const codigo = Math.floor(100000 + Math.random() * 900000).toString();
+    admin.codeVerify = codigo;
+    await admin.save();
+    sentEmailVerification(admin.email, codigo);
+
+    res.status(200).send({ message: "Verifique o seu email por favor" });
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log({ message: error });
+      return res.status(500).send({ message: error.message });
+    }
+  }
+};
+
+export const RedefinirSenha = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { email, codigo, password } = req.body as {
+      email: string;
+      codigo: string;
+      password: string;
+    };
+    const admin = await findOneAdmin(email);
+    if (!admin || admin.codeVerify !== codigo) {
+      return res.status(400).send({ message: "Código inválido" });
+    }
+
+    const hash = bcrypt.hashSync(password, 10);
+
+    admin.password = hash;
+    admin.codeVerify = undefined;
+    await admin.save();
+
+    res.status(200).send({ message: "Senha de administarador alterado" });
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });
