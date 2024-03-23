@@ -28,16 +28,19 @@ export declare const Admin: mongoose.Model<{
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
@@ -45,16 +48,19 @@ export declare const Admin: mongoose.Model<{
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }>> & mongoose.FlatRecord<{
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>>;

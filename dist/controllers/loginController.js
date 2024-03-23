@@ -36,7 +36,7 @@ const AdminLogin = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
                 .send({ messaage: "Usuário ou palavra passe inválido" });
         }
         const token = (0, loginService_1.generateToken)(adm.id);
-        res.status(200).send(token);
+        res.status(200).send({ token: token });
     }
     catch (error) {
         if (error instanceof Error) {
@@ -69,7 +69,7 @@ const FuncionarioLogin = (req, res) => __awaiter(void 0, void 0, void 0, functio
                 .send({ message: "Usuario ou senha de usuário inválido" });
         }
         const token = (0, loginService_1.generateToken)(funcionario.id);
-        res.status(200).send(token);
+        res.status(200).send({ token: token });
     }
     catch (error) {
         if (error instanceof Error) {

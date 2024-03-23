@@ -28,11 +28,13 @@ export declare const createAdmin: (values: Record<string, any>) => Promise<impor
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }>;
@@ -41,11 +43,13 @@ export declare const findAdmin: () => import("mongoose").Query<(import("mongoose
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 })[], import("mongoose").Document<unknown, {}, {
@@ -53,11 +57,13 @@ export declare const findAdmin: () => import("mongoose").Query<(import("mongoose
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
@@ -65,17 +71,20 @@ export declare const findAdmin: () => import("mongoose").Query<(import("mongoose
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }, "find">;
-export declare const findAdminById: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+export declare const findOneAdmin: (email: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
@@ -83,11 +92,13 @@ export declare const findAdminById: (id: string) => import("mongoose").Query<(im
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
@@ -95,17 +106,55 @@ export declare const findAdminById: (id: string) => import("mongoose").Query<(im
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+}, "findOne">;
+export declare const findAdminById: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    admin: string;
+    email: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+}> & {
+    admin: string;
+    email: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+} & {
+    _id: import("mongoose").Types.ObjectId;
+}) | null, import("mongoose").Document<unknown, {}, {
+    admin: string;
+    email: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+}> & {
+    admin: string;
+    email: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+} & {
+    _id: import("mongoose").Types.ObjectId;
+}, {}, {
+    admin: string;
+    email: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }, "findOne">;
 export declare const updateAdmin: (id: string, admin: string, avatar: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
@@ -113,11 +162,13 @@ export declare const updateAdmin: (id: string, admin: string, avatar: string) =>
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
@@ -125,4 +176,5 @@ export declare const updateAdmin: (id: string, admin: string, avatar: string) =>
     email: string;
     password: string;
     avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
 }, "findOneAndUpdate">;
