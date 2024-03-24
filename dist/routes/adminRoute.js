@@ -8,6 +8,7 @@ exports.adminRoute = (0, express_1.Router)();
 exports.adminRoute.post("/newadmin", adminController_1.CreateAdmin);
 exports.adminRoute.get("/findadmin", adminController_1.FindAdmin);
 exports.adminRoute.get("/findadminbyid/:id?", authMiddleware_1.authAdmin, adminController_1.FindAdminById);
-exports.adminRoute.patch("/updateadmin/:id", adminController_1.UpdateAdmin);
+exports.adminRoute.patch("/updateadmin/:id", authMiddleware_1.authAdmin, adminController_1.UpdateAdmin);
 exports.adminRoute.post("/esqueci-a-senha", adminController_1.SolicitarRedefinicaoSenha);
 exports.adminRoute.post("/redefinir-senha", adminController_1.RedefinirSenha);
+exports.adminRoute.delete("/deleteadmin/:id", authMiddleware_1.authAdmin, adminController_1.DeleteAdmin);

@@ -24,11 +24,11 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 export declare const createFuncionario: (values: Record<string, any>) => Promise<import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -43,11 +43,11 @@ export declare const createFuncionario: (values: Record<string, any>) => Promise
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -65,11 +65,11 @@ export declare const createFuncionario: (values: Record<string, any>) => Promise
     _id: import("mongoose").Types.ObjectId;
 }>;
 export declare const findFuncionarios: () => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -84,11 +84,11 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -105,11 +105,11 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
 } & {
     _id: import("mongoose").Types.ObjectId;
 })[], import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -124,11 +124,11 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -145,11 +145,11 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -165,11 +165,11 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
     } | null | undefined;
 }, "find">;
 export declare const findFuncionarioById: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -184,11 +184,11 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -205,11 +205,11 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -224,11 +224,11 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -245,11 +245,11 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -265,11 +265,11 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
     } | null | undefined;
 }, "findOne">;
 export declare const deleteFuncionario: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -284,11 +284,11 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -305,11 +305,11 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -324,11 +324,11 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -345,11 +345,11 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -364,12 +364,12 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
         isValid?: {} | null | undefined;
     } | null | undefined;
 }, "findOneAndDelete">;
-export declare const updateFuncionario: (id: string, telemovel: string, endereco: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+export declare const updateFuncionario: (id: string, usuario: string, telemovel: string, endereco: string, email: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -384,11 +384,11 @@ export declare const updateFuncionario: (id: string, telemovel: string, endereco
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -405,11 +405,11 @@ export declare const updateFuncionario: (id: string, telemovel: string, endereco
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -424,11 +424,11 @@ export declare const updateFuncionario: (id: string, telemovel: string, endereco
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -445,11 +445,11 @@ export declare const updateFuncionario: (id: string, telemovel: string, endereco
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;

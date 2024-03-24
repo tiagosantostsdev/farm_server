@@ -12,20 +12,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RedefinirSenha = exports.SolicitarRedefinicaoSenha = exports.UpdateAdmin = exports.FindAdminById = exports.FindAdmin = exports.CreateAdmin = void 0;
+exports.DeleteAdmin = exports.RedefinirSenha = exports.SolicitarRedefinicaoSenha = exports.UpdateAdmin = exports.FindAdminById = exports.FindAdmin = exports.CreateAdmin = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const adminService_1 = require("../services/adminService");
 const configController_1 = require("./configController");
 const CreateAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { admin, email, password, avatar } = req.body;
-        if (!admin || !email || !password) {
+        const { admin, email, telemovel, password, avatar } = req.body;
+        if (!admin || !email || !telemovel || !password) {
             return res.status(400).send({ message: "Please submit all field" });
         }
         const hash = bcrypt_1.default.hashSync(password, 10);
         const adm = yield (0, adminService_1.createAdmin)({
             admin: admin,
             email: email,
+            telemovel: telemovel,
             password: hash,
             avatar: avatar,
         });
@@ -82,13 +83,13 @@ exports.FindAdminById = FindAdminById;
 const UpdateAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        const { admin, avatar } = req.body;
-        if (!admin && !avatar) {
+        const { admin, avatar, telemovel, email } = req.body;
+        if (!admin && !avatar && !telemovel && !email) {
             return res
                 .status(400)
                 .send({ message: "Please submit at least one field" });
         }
-        yield (0, adminService_1.updateAdmin)(id, admin, avatar);
+        yield (0, adminService_1.updateAdmin)(id, admin, avatar, telemovel, email);
         res.status(200).send({ message: "Admin has been updated successful" });
     }
     catch (error) {
@@ -146,3 +147,25 @@ const RedefinirSenha = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.RedefinirSenha = RedefinirSenha;
+const DeleteAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).send({ message: "Id necessário" });
+        }
+        const admin = yield (0, adminService_1.deleteAdmin)(id);
+        if (!admin) {
+            return res
+                .status(400)
+                .send({ message: "Erro ao eliminar administrador" });
+        }
+        res.status(200).send({ message: "Administardor eliminado" });
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            console.log({ message: error.message });
+            return res.status(500).send({ message: error.message });
+        }
+    }
+});
+exports.DeleteAdmin = DeleteAdmin;

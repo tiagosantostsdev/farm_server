@@ -24,11 +24,11 @@
 /// <reference types="mongoose/types/inferschematype" />
 import mongoose from "mongoose";
 export declare const Funcionario: mongoose.Model<{
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -43,11 +43,11 @@ export declare const Funcionario: mongoose.Model<{
         isValid?: {} | null | undefined;
     } | null | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -62,11 +62,11 @@ export declare const Funcionario: mongoose.Model<{
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -83,11 +83,11 @@ export declare const Funcionario: mongoose.Model<{
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -102,11 +102,11 @@ export declare const Funcionario: mongoose.Model<{
         isValid?: {} | null | undefined;
     } | null | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -121,11 +121,11 @@ export declare const Funcionario: mongoose.Model<{
         isValid?: {} | null | undefined;
     } | null | undefined;
 }>> & mongoose.FlatRecord<{
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;

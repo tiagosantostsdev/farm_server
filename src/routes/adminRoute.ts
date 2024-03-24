@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   CreateAdmin,
+  DeleteAdmin,
   FindAdmin,
   FindAdminById,
   RedefinirSenha,
@@ -17,8 +18,10 @@ adminRoute.get("/findadmin", FindAdmin);
 
 adminRoute.get("/findadminbyid/:id?", authAdmin, FindAdminById)
 
-adminRoute.patch("/updateadmin/:id", UpdateAdmin);
+adminRoute.patch("/updateadmin/:id", authAdmin, UpdateAdmin);
 
 adminRoute.post("/esqueci-a-senha", SolicitarRedefinicaoSenha);
 
 adminRoute.post("/redefinir-senha", RedefinirSenha);
+
+adminRoute.delete("/deleteadmin/:id", authAdmin, DeleteAdmin)

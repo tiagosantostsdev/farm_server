@@ -26,18 +26,21 @@ import mongoose from "mongoose";
 export declare const Admin: mongoose.Model<{
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -46,18 +49,21 @@ export declare const Admin: mongoose.Model<{
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }>> & mongoose.FlatRecord<{
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;

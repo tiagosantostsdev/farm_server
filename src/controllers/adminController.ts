@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import express from "express";
 import {
   createAdmin,
+  deleteAdmin,
   findAdmin,
   findAdminById,
   findOneAdmin,
@@ -14,19 +15,21 @@ export const CreateAdmin = async (
   res: express.Response
 ) => {
   try {
-    const { admin, email, password, avatar } = req.body as {
+    const { admin, email, telemovel, password, avatar } = req.body as {
       admin: string;
       email: string;
+      telemovel: string;
       password: string;
       avatar: string;
     };
-    if (!admin || !email || !password) {
+    if (!admin || !email || !telemovel || !password) {
       return res.status(400).send({ message: "Please submit all field" });
     }
     const hash = bcrypt.hashSync(password, 10);
     const adm = await createAdmin({
       admin: admin,
       email: email,
+      telemovel: telemovel,
       password: hash,
       avatar: avatar,
     });
@@ -64,21 +67,21 @@ export const FindAdmin = async (
   }
 };
 
-export const FindAdminById = async (req:any, res:express.Response) => {
+export const FindAdminById = async (req: any, res: express.Response) => {
   try {
-    const {adminId} = req;
+    const { adminId } = req;
     const admin = await findAdminById(adminId);
-    if(!admin){
-      return res.status(400).send({message: "Administrador não encoontrado"})
+    if (!admin) {
+      return res.status(400).send({ message: "Administrador não encoontrado" });
     }
-    res.status(200).send(admin)
+    res.status(200).send(admin);
   } catch (error) {
-    if(error instanceof Error){
-      console.log({message: error.message})
-      return res.status(500).send({message: error.message})
+    if (error instanceof Error) {
+      console.log({ message: error.message });
+      return res.status(500).send({ message: error.message });
     }
   }
-}
+};
 
 export const UpdateAdmin = async (
   req: express.Request,
@@ -86,13 +89,13 @@ export const UpdateAdmin = async (
 ) => {
   try {
     const { id } = req.params as { id: string };
-    const { admin, avatar } = req.body as { admin: string; avatar: string };
-    if (!admin && !avatar) {
+    const { admin, avatar, telemovel, email } = req.body as { admin: string; avatar: string, telemovel:string, email:string };
+    if (!admin && !avatar && !telemovel && !email) {
       return res
         .status(400)
         .send({ message: "Please submit at least one field" });
     }
-    await updateAdmin(id, admin, avatar);
+    await updateAdmin(id, admin, avatar, telemovel, email);
     res.status(200).send({ message: "Admin has been updated successful" });
   } catch (error) {
     if (error instanceof Error) {
@@ -155,6 +158,30 @@ export const RedefinirSenha = async (
     await admin.save();
 
     res.status(200).send({ message: "Senha de administarador alterado" });
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log({ message: error.message });
+      return res.status(500).send({ message: error.message });
+    }
+  }
+};
+
+export const DeleteAdmin = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { id } = req.params as { id: string };
+    if (!id) {
+      return res.status(400).send({ message: "Id necessário" });
+    }
+    const admin = await deleteAdmin(id);
+    if (!admin) {
+      return res
+        .status(400)
+        .send({ message: "Erro ao eliminar administrador" });
+    }
+    res.status(200).send({ message: "Administardor eliminado" });
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });

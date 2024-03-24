@@ -26,12 +26,14 @@
 export declare const findAdminLogin: (admin: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -40,12 +42,14 @@ export declare const findAdminLogin: (admin: string) => import("mongoose").Query
 }) | null, import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -54,16 +58,17 @@ export declare const findAdminLogin: (admin: string) => import("mongoose").Query
 }, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }, "findOne">;
 export declare const findFuncionarioLogin: (usuario: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -78,11 +83,11 @@ export declare const findFuncionarioLogin: (usuario: string) => import("mongoose
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -99,11 +104,11 @@ export declare const findFuncionarioLogin: (usuario: string) => import("mongoose
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -118,11 +123,11 @@ export declare const findFuncionarioLogin: (usuario: string) => import("mongoose
         isValid?: {} | null | undefined;
     } | null | undefined;
 }> & {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;
@@ -139,11 +144,11 @@ export declare const findFuncionarioLogin: (usuario: string) => import("mongoose
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    telemovel: string;
     usuario: string;
     senha: string;
     endereco: string;
-    dataRegistro: Date;
-    telemovel: string;
+    dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
     nif?: string | null | undefined;

@@ -12,10 +12,17 @@ export const deleteFuncionario = (id: string) =>
 
 export const updateFuncionario = (
   id: string,
+  usuario: string,
   telemovel: string,
-  endereco: string
+  endereco: string,
+  email: string
 ) =>
   Funcionario.findOneAndUpdate(
     { _id: id },
-    { telemovel: telemovel, endereco: endereco }
+    {
+      usuario: usuario,
+      telemovel: telemovel,
+      endereco: endereco,
+      email: email,
+    }
   );

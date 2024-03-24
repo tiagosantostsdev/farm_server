@@ -8,5 +8,6 @@ const globalMiddleware_1 = require("../middlewares/globalMiddleware");
 exports.funcionarioRoute = (0, express_1.Router)();
 exports.funcionarioRoute.post("/novo", authMiddleware_1.authAdmin, funcionariosController_1.CreateFuncionario);
 exports.funcionarioRoute.get("/", funcionariosController_1.FindFuncionario);
+exports.funcionarioRoute.get("/findbyid", authMiddleware_1.authFuncionario, funcionariosController_1.FindFuncionarioById);
 exports.funcionarioRoute.patch("/update/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, funcionariosController_1.UpdateFuncionario);
 exports.funcionarioRoute.delete("/delete/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, funcionariosController_1.DeleteFuncionario);

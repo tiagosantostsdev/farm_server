@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateAdmin = exports.findAdminById = exports.findOneAdmin = exports.findAdmin = exports.createAdmin = void 0;
+exports.deleteAdmin = exports.updateAdmin = exports.findAdminById = exports.findOneAdmin = exports.findAdmin = exports.createAdmin = void 0;
 const adminModel_1 = require("../models/adminModel");
 const createAdmin = (values) => adminModel_1.Admin.create(values);
 exports.createAdmin = createAdmin;
@@ -10,5 +10,7 @@ const findOneAdmin = (email) => adminModel_1.Admin.findOne({ email: email });
 exports.findOneAdmin = findOneAdmin;
 const findAdminById = (id) => adminModel_1.Admin.findById(id);
 exports.findAdminById = findAdminById;
-const updateAdmin = (id, admin, avatar) => adminModel_1.Admin.findOneAndUpdate({ _id: id }, { admin: admin, avatar: avatar });
+const updateAdmin = (id, admin, avatar, telemovel, email) => adminModel_1.Admin.findOneAndUpdate({ _id: id }, { admin: admin, avatar: avatar, telemovel: telemovel, email: email });
 exports.updateAdmin = updateAdmin;
+const deleteAdmin = (id) => adminModel_1.Admin.findByIdAndDelete(id);
+exports.deleteAdmin = deleteAdmin;

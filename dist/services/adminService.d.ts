@@ -26,12 +26,14 @@
 export declare const createAdmin: (values: Record<string, any>) => Promise<import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -41,12 +43,14 @@ export declare const createAdmin: (values: Record<string, any>) => Promise<impor
 export declare const findAdmin: () => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -55,12 +59,14 @@ export declare const findAdmin: () => import("mongoose").Query<(import("mongoose
 })[], import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -69,6 +75,7 @@ export declare const findAdmin: () => import("mongoose").Query<(import("mongoose
 }, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -76,12 +83,14 @@ export declare const findAdmin: () => import("mongoose").Query<(import("mongoose
 export declare const findOneAdmin: (email: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -90,12 +99,14 @@ export declare const findOneAdmin: (email: string) => import("mongoose").Query<(
 }) | null, import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -104,6 +115,7 @@ export declare const findOneAdmin: (email: string) => import("mongoose").Query<(
 }, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -111,12 +123,14 @@ export declare const findOneAdmin: (email: string) => import("mongoose").Query<(
 export declare const findAdminById: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -125,12 +139,14 @@ export declare const findAdminById: (id: string) => import("mongoose").Query<(im
 }) | null, import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -139,19 +155,22 @@ export declare const findAdminById: (id: string) => import("mongoose").Query<(im
 }, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }, "findOne">;
-export declare const updateAdmin: (id: string, admin: string, avatar: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+export declare const updateAdmin: (id: string, admin: string, avatar: string, telemovel: string, email: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -160,12 +179,14 @@ export declare const updateAdmin: (id: string, admin: string, avatar: string) =>
 }) | null, import("mongoose").Document<unknown, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }> & {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
@@ -174,7 +195,48 @@ export declare const updateAdmin: (id: string, admin: string, avatar: string) =>
 }, {}, {
     admin: string;
     email: string;
+    telemovel: string;
     password: string;
     avatar?: string | null | undefined;
     codeVerify?: string | null | undefined;
 }, "findOneAndUpdate">;
+export declare const deleteAdmin: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    admin: string;
+    email: string;
+    telemovel: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+}> & {
+    admin: string;
+    email: string;
+    telemovel: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+} & {
+    _id: import("mongoose").Types.ObjectId;
+}) | null, import("mongoose").Document<unknown, {}, {
+    admin: string;
+    email: string;
+    telemovel: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+}> & {
+    admin: string;
+    email: string;
+    telemovel: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+} & {
+    _id: import("mongoose").Types.ObjectId;
+}, {}, {
+    admin: string;
+    email: string;
+    telemovel: string;
+    password: string;
+    avatar?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+}, "findOneAndDelete">;

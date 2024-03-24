@@ -10,5 +10,10 @@ const findFuncionarioById = (id) => funcionarioModel_1.Funcionario.findById(id);
 exports.findFuncionarioById = findFuncionarioById;
 const deleteFuncionario = (id) => funcionarioModel_1.Funcionario.findOneAndDelete({ _id: id });
 exports.deleteFuncionario = deleteFuncionario;
-const updateFuncionario = (id, telemovel, endereco) => funcionarioModel_1.Funcionario.findOneAndUpdate({ _id: id }, { telemovel: telemovel, endereco: endereco });
+const updateFuncionario = (id, usuario, telemovel, endereco, email) => funcionarioModel_1.Funcionario.findOneAndUpdate({ _id: id }, {
+    usuario: usuario,
+    telemovel: telemovel,
+    endereco: endereco,
+    email: email,
+});
 exports.updateFuncionario = updateFuncionario;
