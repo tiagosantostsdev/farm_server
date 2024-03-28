@@ -12,9 +12,10 @@ export const updateFornecedores = (
   id: string,
   nome: string,
   telefone: string,
-  endereco: string
+  endereco: string,
+  site: string
 ) =>
   Fornecedores.findOneAndUpdate(
     { _id: id },
-    { nome: nome, telefone: telefone, endereco: endereco }
+    { nome: nome, telefone: telefone, endereco: endereco, site: site}
   );

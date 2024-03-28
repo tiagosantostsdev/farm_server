@@ -8,6 +8,7 @@ const produtosSchema = new mongoose.Schema({
   preco: { type: Number, required: true },
   fornecedor: { type: String, required: true },
   fabricante: { type: String, required: true },
+  dataRegistro: {type:String, required:true}
 });
 
 export const Produto = mongoose.model("produtos", produtosSchema);

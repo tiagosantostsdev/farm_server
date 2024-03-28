@@ -62,7 +62,7 @@ export const CreateCarrinho = async (
 
       const venda = await createCarrinho({
         nome: params.nome,
-        Produto:params.id,
+        Produto: params.id,
         quantidade: quantidade,
         descricao: params.descricao,
         dosagem: params.dosagem,
@@ -87,12 +87,17 @@ export const FindCarrinho = async (
   res: express.Response
 ) => {
   try {
-    const venda = await findCarrinho();
-    if (venda.length === 0) {
+    const item = await findCarrinho();
+    if (item.length === 0) {
       return res.status(400).send({ message: "Nenhum produto encontrado" });
     }
 
-    res.status(200).send(venda);
+    let total: number = 0;
+    item.forEach((item) => {
+      total = total + item.total;
+    });
+
+    res.status(200).send({item: item, total:total});
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });

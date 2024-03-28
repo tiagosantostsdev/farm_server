@@ -40,6 +40,9 @@ export const CreateProdutos = async (
     ) {
       return res.status(400).send({ message: "Please submit all field" });
     }
+
+    const date = new Date();
+
     const produtos = await createProduto({
       nome,
       quantidade,
@@ -48,6 +51,7 @@ export const CreateProdutos = async (
       preco,
       fornecedor,
       fabricante,
+      dataRegistro: date.toLocaleString(),
     });
     if (!produtos) {
       return res.status(400).send({ message: "Erro ao criar novos produtos" });

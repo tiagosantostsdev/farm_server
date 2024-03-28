@@ -8,7 +8,7 @@ const fornecedoresSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   site: { type: String, unique: true },
   Admin: { type: mongoose.Types.ObjectId, ref: "admin" },
-  dataRegistro: { type: Date, default: Date.now },
+  dataRegistro: { type: String, required:true },
 });
 
 export const Fornecedores = mongoose.model("fornecedores", fornecedoresSchema)

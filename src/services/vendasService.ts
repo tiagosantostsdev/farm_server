@@ -29,4 +29,4 @@ export const updateVendaCalc = (
 
 export const findVendaById = (id: string) => Vendas.findById(id);
 
-export const findVendas = () => Vendas.find();
+export const findVendas = () => Vendas.find().populate("Funcionario")

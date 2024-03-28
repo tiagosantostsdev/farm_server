@@ -24,6 +24,9 @@ export const CreateFornecedor = async (
         .status(400)
         .send({ message: "Por favor preencha todos os campos" });
     }
+
+    const date = new Date();
+
     const fornecedor = await createFornecedores({
       nome,
       nif,
@@ -31,6 +34,7 @@ export const CreateFornecedor = async (
       telefone,
       email,
       site,
+      dataRegistro: date.toLocaleString(),
     });
     if (!fornecedor) {
       return res.status(400).send({ message: "Erro ao criar novo fornecedor" });
@@ -67,19 +71,18 @@ export const FindFornecedor = async (
 export const UpdateFornecedor = async (req: any, res: express.Response) => {
   try {
     const { id } = req;
-    const { nome, telefone, endereco } = req.body as {
+    const { nome, telefone, endereco, site } = req.body as {
       nome: string;
       telefone: string;
       endereco: string;
+      site: string;
     };
-    if (!nome && !telefone && !endereco) {
-      return res
-        .status(400)
-        .send({
-          message: "Por favor selecione ao menos um campo para ser alterado",
-        });
+    if (!nome && !telefone && !endereco && !site) {
+      return res.status(400).send({
+        message: "Por favor selecione ao menos um campo para ser alterado",
+      });
     }
-    await updateFornecedores(id, nome, telefone, endereco);
+    await updateFornecedores(id, nome, telefone, endereco, site);
     res.status(200).send({ message: "Dados alterado com sucesso" });
   } catch (error) {
     if (error instanceof Error) {

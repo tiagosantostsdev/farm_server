@@ -24,6 +24,8 @@ export const CreateFabricante = async (
         .status(400)
         .send({ message: "Por favor preencha todos os campos" });
     }
+
+    const date = new Date();
     const fabricante = await createFabricantes({
       nome,
       nif,
@@ -31,6 +33,7 @@ export const CreateFabricante = async (
       endereco,
       telefone,
       email,
+      dataRegistro: date.toLocaleString(),
     });
     if (!fabricante) {
       return res.status(400).send({ message: "Erro ao criar novo fabricante" });
@@ -64,12 +67,9 @@ export const FindFabricante = async (
   }
 };
 
-export const UpdateFabricante = async (
-  req:any,
-  res: express.Response
-) => {
+export const UpdateFabricante = async (req: any, res: express.Response) => {
   try {
-    const {id}  = req;
+    const { id } = req;
     const { nome, telefone, endereco } = req.body as {
       nome: string;
       telefone: string;
@@ -90,10 +90,7 @@ export const UpdateFabricante = async (
   }
 };
 
-export const DeleteFabricante = async (
-  req: any,
-  res: express.Response
-) => {
+export const DeleteFabricante = async (req: any, res: express.Response) => {
   try {
     const { id } = req;
     const fabricante = await deleteFabricantes(id);

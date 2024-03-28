@@ -9,6 +9,6 @@ carrinhoRoute.post("/create", authFuncionario, CreateCarrinho)
 
 carrinhoRoute.get("/", FindCarrinho)
 
-carrinhoRoute.delete("/delete/:id", DeleteCarrinho)
+carrinhoRoute.delete("/delete/:id",authFuncionario, DeleteCarrinho)
 
-carrinhoRoute.patch("/update/:id", UpdateCarrinho)
+carrinhoRoute.patch("/update/:id",authFuncionario, UpdateCarrinho)

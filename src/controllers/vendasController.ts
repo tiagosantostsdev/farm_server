@@ -117,11 +117,11 @@ export const FindVendas = async (
   res: express.Response
 ) => {
   try {
-    const Vendas = await findVendas();
-    if (Vendas.length === 0) {
+    const vendas = await findVendas();
+    if (vendas.length === 0) {
       return res.status(404).send({ message: "Nenhuma Venda registrada" });
     }
-    res.status(200).send(Vendas);
+    res.status(200).send(vendas);
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });

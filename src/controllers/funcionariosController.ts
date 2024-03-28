@@ -46,14 +46,14 @@ export const CreateFuncionario = async (
         .send({ message: "Por favor preencha todos os campos" });
     }
 
-    const data = new Date();
+    const date = new Date();
     const hash = bcrypt.hashSync(senha, 10);
     const funcionario = await createFuncionario({
       usuario,
       senha: hash,
       nif,
       endereco,
-      dataRegistro: data.toLocaleString(),
+      dataRegistro: date.toLocaleString(),
       telemovel,
       email,
       genero,
