@@ -7,6 +7,6 @@ const fabricantesController_1 = require("../controllers/fabricantesController");
 const globalMiddleware_1 = require("../middlewares/globalMiddleware");
 exports.fabricanteRoute = (0, express_1.Router)();
 exports.fabricanteRoute.post("/novo", authMiddleware_1.authAdmin, fabricantesController_1.CreateFabricante);
-exports.fabricanteRoute.get("/", fabricantesController_1.FindFabricante);
+exports.fabricanteRoute.get("/", authMiddleware_1.authAdmin, fabricantesController_1.FindFabricante);
 exports.fabricanteRoute.patch("/update/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, fabricantesController_1.UpdateFabricante);
 exports.fabricanteRoute.delete("/delete/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, fabricantesController_1.DeleteFabricante);
