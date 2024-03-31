@@ -27,7 +27,7 @@ export declare const Fornecedores: mongoose.Model<{
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -44,7 +44,7 @@ export declare const Fornecedores: mongoose.Model<{
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -61,7 +61,7 @@ export declare const Fornecedores: mongoose.Model<{
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -80,7 +80,7 @@ export declare const Fornecedores: mongoose.Model<{
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -97,7 +97,7 @@ export declare const Fornecedores: mongoose.Model<{
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -114,7 +114,7 @@ export declare const Fornecedores: mongoose.Model<{
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {

@@ -19,6 +19,7 @@ const CreateFabricante = (req, res) => __awaiter(void 0, void 0, void 0, functio
                 .status(400)
                 .send({ message: "Por favor preencha todos os campos" });
         }
+        const date = new Date();
         const fabricante = yield (0, fabricantesService_1.createFabricantes)({
             nome,
             nif,
@@ -26,6 +27,7 @@ const CreateFabricante = (req, res) => __awaiter(void 0, void 0, void 0, functio
             endereco,
             telefone,
             email,
+            dataRegistro: date.toLocaleString(),
         });
         if (!fabricante) {
             return res.status(400).send({ message: "Erro ao criar novo fabricante" });

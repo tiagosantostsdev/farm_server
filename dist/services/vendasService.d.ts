@@ -177,7 +177,7 @@ export declare const findVendaById: (id: string) => import("mongoose").Query<(im
     dataVenda: string;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }, "findOne">;
-export declare const findVendas: () => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+export declare const findVendas: () => import("mongoose").Query<Omit<import("mongoose").Document<unknown, {}, {
     produtos: any[];
     total: number;
     nomeCliente: string;
@@ -195,7 +195,7 @@ export declare const findVendas: () => import("mongoose").Query<(import("mongoos
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
-})[], import("mongoose").Document<unknown, {}, {
+}, never>[], import("mongoose").Document<unknown, {}, {
     produtos: any[];
     total: number;
     nomeCliente: string;

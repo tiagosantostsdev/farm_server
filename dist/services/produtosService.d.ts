@@ -24,6 +24,7 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 export declare const createProduto: (values: Record<string, any>) => Promise<import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -32,6 +33,7 @@ export declare const createProduto: (values: Record<string, any>) => Promise<imp
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -43,6 +45,7 @@ export declare const createProduto: (values: Record<string, any>) => Promise<imp
     _id: import("mongoose").Types.ObjectId;
 }>;
 export declare const findProdutos: () => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -51,6 +54,7 @@ export declare const findProdutos: () => import("mongoose").Query<(import("mongo
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -61,6 +65,7 @@ export declare const findProdutos: () => import("mongoose").Query<(import("mongo
 } & {
     _id: import("mongoose").Types.ObjectId;
 })[], import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -69,6 +74,7 @@ export declare const findProdutos: () => import("mongoose").Query<(import("mongo
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -79,6 +85,7 @@ export declare const findProdutos: () => import("mongoose").Query<(import("mongo
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -88,6 +95,7 @@ export declare const findProdutos: () => import("mongoose").Query<(import("mongo
     fabricante: string;
 }, "find">;
 export declare const searchProdutos: (nome: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -96,6 +104,7 @@ export declare const searchProdutos: (nome: string) => import("mongoose").Query<
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -106,6 +115,7 @@ export declare const searchProdutos: (nome: string) => import("mongoose").Query<
 } & {
     _id: import("mongoose").Types.ObjectId;
 })[], import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -114,6 +124,7 @@ export declare const searchProdutos: (nome: string) => import("mongoose").Query<
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -124,6 +135,7 @@ export declare const searchProdutos: (nome: string) => import("mongoose").Query<
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -133,6 +145,7 @@ export declare const searchProdutos: (nome: string) => import("mongoose").Query<
     fabricante: string;
 }, "find">;
 export declare const deleteProduto: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -141,6 +154,7 @@ export declare const deleteProduto: (id: string) => import("mongoose").Query<(im
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -151,6 +165,7 @@ export declare const deleteProduto: (id: string) => import("mongoose").Query<(im
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -159,6 +174,7 @@ export declare const deleteProduto: (id: string) => import("mongoose").Query<(im
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -169,6 +185,7 @@ export declare const deleteProduto: (id: string) => import("mongoose").Query<(im
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -178,6 +195,7 @@ export declare const deleteProduto: (id: string) => import("mongoose").Query<(im
     fabricante: string;
 }, "findOneAndDelete">;
 export declare const updateProdutoAdmin: (id: string, nome: string, quantidade: number, dosagem: string, descricao: string, preco: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -186,6 +204,7 @@ export declare const updateProdutoAdmin: (id: string, nome: string, quantidade: 
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -196,6 +215,7 @@ export declare const updateProdutoAdmin: (id: string, nome: string, quantidade: 
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -204,6 +224,7 @@ export declare const updateProdutoAdmin: (id: string, nome: string, quantidade: 
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -214,6 +235,7 @@ export declare const updateProdutoAdmin: (id: string, nome: string, quantidade: 
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -223,6 +245,7 @@ export declare const updateProdutoAdmin: (id: string, nome: string, quantidade: 
     fabricante: string;
 }, "findOneAndUpdate">;
 export declare const updateProdutoCarrinho: (id: string, quantidade: number) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -231,6 +254,7 @@ export declare const updateProdutoCarrinho: (id: string, quantidade: number) => 
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -241,6 +265,7 @@ export declare const updateProdutoCarrinho: (id: string, quantidade: number) => 
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -249,6 +274,7 @@ export declare const updateProdutoCarrinho: (id: string, quantidade: number) => 
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -259,6 +285,7 @@ export declare const updateProdutoCarrinho: (id: string, quantidade: number) => 
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;

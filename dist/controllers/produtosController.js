@@ -23,6 +23,7 @@ const CreateProdutos = (req, res) => __awaiter(void 0, void 0, void 0, function*
             !fabricante) {
             return res.status(400).send({ message: "Please submit all field" });
         }
+        const date = new Date();
         const produtos = yield (0, produtosService_1.createProduto)({
             nome,
             quantidade,
@@ -31,6 +32,7 @@ const CreateProdutos = (req, res) => __awaiter(void 0, void 0, void 0, function*
             preco,
             fornecedor,
             fabricante,
+            dataRegistro: date.toLocaleString(),
         });
         if (!produtos) {
             return res.status(400).send({ message: "Erro ao criar novos produtos" });

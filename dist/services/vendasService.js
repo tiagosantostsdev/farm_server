@@ -10,5 +10,5 @@ const updateVendaCalc = (id, valor, total, troco) => vendasModel_1.Vendas.findOn
 exports.updateVendaCalc = updateVendaCalc;
 const findVendaById = (id) => vendasModel_1.Vendas.findById(id);
 exports.findVendaById = findVendaById;
-const findVendas = () => vendasModel_1.Vendas.find();
+const findVendas = () => vendasModel_1.Vendas.find().populate("Funcionario");
 exports.findVendas = findVendas;

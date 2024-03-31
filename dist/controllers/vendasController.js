@@ -99,11 +99,11 @@ const UpdateVendasById = (req, res) => __awaiter(void 0, void 0, void 0, functio
 exports.UpdateVendasById = UpdateVendasById;
 const FindVendas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const Vendas = yield (0, vendasService_1.findVendas)();
-        if (Vendas.length === 0) {
+        const vendas = yield (0, vendasService_1.findVendas)();
+        if (vendas.length === 0) {
             return res.status(404).send({ message: "Nenhuma Venda registrada" });
         }
-        res.status(200).send(Vendas);
+        res.status(200).send(vendas);
     }
     catch (error) {
         if (error instanceof Error) {

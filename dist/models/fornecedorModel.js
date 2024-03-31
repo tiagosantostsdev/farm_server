@@ -13,6 +13,6 @@ const fornecedoresSchema = new mongoose_1.default.Schema({
     email: { type: String, required: true, unique: true },
     site: { type: String, unique: true },
     Admin: { type: mongoose_1.default.Types.ObjectId, ref: "admin" },
-    dataRegistro: { type: Date, default: Date.now },
+    dataRegistro: { type: String, required: true },
 });
 exports.Fornecedores = mongoose_1.default.model("fornecedores", fornecedoresSchema);

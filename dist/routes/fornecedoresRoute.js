@@ -7,6 +7,6 @@ const fornecedoresController_1 = require("../controllers/fornecedoresController"
 const globalMiddleware_1 = require("../middlewares/globalMiddleware");
 exports.fornecedorRoute = (0, express_1.Router)();
 exports.fornecedorRoute.post("/novo", authMiddleware_1.authAdmin, fornecedoresController_1.CreateFornecedor);
-exports.fornecedorRoute.get("/", fornecedoresController_1.FindFornecedor);
+exports.fornecedorRoute.get("/", authMiddleware_1.authAdmin, fornecedoresController_1.FindFornecedor);
 exports.fornecedorRoute.patch("/update/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, fornecedoresController_1.UpdateFornecedor);
 exports.fornecedorRoute.delete("/delete/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, fornecedoresController_1.DeleteFornecedor);

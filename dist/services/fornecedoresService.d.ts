@@ -27,7 +27,7 @@ export declare const createFornecedores: (values: Record<string, any>) => Promis
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -44,7 +44,7 @@ export declare const createFornecedores: (values: Record<string, any>) => Promis
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -64,7 +64,7 @@ export declare const findFornecedores: () => import("mongoose").Query<(import("m
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -81,7 +81,7 @@ export declare const findFornecedores: () => import("mongoose").Query<(import("m
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -100,7 +100,7 @@ export declare const findFornecedores: () => import("mongoose").Query<(import("m
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -117,7 +117,7 @@ export declare const findFornecedores: () => import("mongoose").Query<(import("m
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -136,7 +136,7 @@ export declare const findFornecedores: () => import("mongoose").Query<(import("m
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -154,7 +154,7 @@ export declare const deleteFornecedores: (id: string) => import("mongoose").Quer
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -171,7 +171,7 @@ export declare const deleteFornecedores: (id: string) => import("mongoose").Quer
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -190,7 +190,7 @@ export declare const deleteFornecedores: (id: string) => import("mongoose").Quer
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -207,7 +207,7 @@ export declare const deleteFornecedores: (id: string) => import("mongoose").Quer
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -226,7 +226,7 @@ export declare const deleteFornecedores: (id: string) => import("mongoose").Quer
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -240,11 +240,11 @@ export declare const deleteFornecedores: (id: string) => import("mongoose").Quer
     } | null | undefined;
     site?: string | null | undefined;
 }, "findOneAndDelete">;
-export declare const updateFornecedores: (id: string, nome: string, telefone: string, endereco: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+export declare const updateFornecedores: (id: string, nome: string, telefone: string, endereco: string, site: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -261,7 +261,7 @@ export declare const updateFornecedores: (id: string, nome: string, telefone: st
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -280,7 +280,7 @@ export declare const updateFornecedores: (id: string, nome: string, telefone: st
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -297,7 +297,7 @@ export declare const updateFornecedores: (id: string, nome: string, telefone: st
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {
@@ -316,7 +316,7 @@ export declare const updateFornecedores: (id: string, nome: string, telefone: st
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     telefone: string;
     Admin?: {

@@ -12,7 +12,6 @@ const fabricantesSchema = new mongoose_1.default.Schema({
     endereco: { type: String, required: true },
     telefone: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    Admin: { type: mongoose_1.default.Types.ObjectId, ref: "admin" },
-    dataRegistro: { type: Date, default: Date.now },
+    dataRegistro: { type: String, required: true },
 });
 exports.Fabricantes = mongoose_1.default.model("fabricantes", fabricantesSchema);

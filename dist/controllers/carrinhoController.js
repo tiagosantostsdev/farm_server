@@ -74,11 +74,15 @@ const CreateCarrinho = (req, res) => __awaiter(void 0, void 0, void 0, function*
 exports.CreateCarrinho = CreateCarrinho;
 const FindCarrinho = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const venda = yield (0, carrinhoService_1.findCarrinho)();
-        if (venda.length === 0) {
+        const item = yield (0, carrinhoService_1.findCarrinho)();
+        if (item.length === 0) {
             return res.status(400).send({ message: "Nenhum produto encontrado" });
         }
-        res.status(200).send(venda);
+        let total = 0;
+        item.forEach((item) => {
+            total = total + item.total;
+        });
+        res.status(200).send({ item: item, total: total });
     }
     catch (error) {
         if (error instanceof Error) {

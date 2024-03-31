@@ -27,106 +27,52 @@ export declare const Fabricantes: mongoose.Model<{
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: mongoose.Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: mongoose.Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }> & {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: mongoose.Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: mongoose.Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: mongoose.Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }>> & mongoose.FlatRecord<{
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: mongoose.Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>>;

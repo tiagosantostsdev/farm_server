@@ -24,6 +24,7 @@
 /// <reference types="mongoose/types/inferschematype" />
 import mongoose from "mongoose";
 export declare const Produto: mongoose.Model<{
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -32,6 +33,7 @@ export declare const Produto: mongoose.Model<{
     fornecedor: string;
     fabricante: string;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -40,6 +42,7 @@ export declare const Produto: mongoose.Model<{
     fornecedor: string;
     fabricante: string;
 }> & {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -50,6 +53,7 @@ export declare const Produto: mongoose.Model<{
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -58,6 +62,7 @@ export declare const Produto: mongoose.Model<{
     fornecedor: string;
     fabricante: string;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;
@@ -66,6 +71,7 @@ export declare const Produto: mongoose.Model<{
     fornecedor: string;
     fabricante: string;
 }>> & mongoose.FlatRecord<{
+    dataRegistro: string;
     nome: string;
     quantidade: number;
     dosagem: string;

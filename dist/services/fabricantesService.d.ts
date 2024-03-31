@@ -27,36 +27,18 @@ export declare const createFabricantes: (values: Record<string, any>) => Promise
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }> & {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }>;
@@ -64,269 +46,134 @@ export declare const findFabricantes: () => import("mongoose").Query<(import("mo
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }> & {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 })[], import("mongoose").Document<unknown, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }> & {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }, "find">;
 export declare const deleteFabricantes: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }> & {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }> & {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }, "findOneAndDelete">;
 export declare const updateFabricantes: (id: string, nome: string, telefone: string, endereco: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }> & {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }) | null, import("mongoose").Document<unknown, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }> & {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 } & {
     _id: import("mongoose").Types.ObjectId;
 }, {}, {
     email: string;
     nif: string;
     endereco: string;
-    dataRegistro: Date;
+    dataRegistro: string;
     nome: string;
     pais: string;
     telefone: string;
-    Admin?: {
-        prototype?: import("mongoose").Types.ObjectId | null | undefined;
-        cacheHexString?: unknown;
-        generate?: {} | null | undefined;
-        createFromTime?: {} | null | undefined;
-        createFromHexString?: {} | null | undefined;
-        createFromBase64?: {} | null | undefined;
-        isValid?: {} | null | undefined;
-    } | null | undefined;
 }, "findOneAndUpdate">;

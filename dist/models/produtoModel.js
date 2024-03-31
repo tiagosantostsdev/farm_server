@@ -13,5 +13,6 @@ const produtosSchema = new mongoose_1.default.Schema({
     preco: { type: Number, required: true },
     fornecedor: { type: String, required: true },
     fabricante: { type: String, required: true },
+    dataRegistro: { type: String, required: true }
 });
 exports.Produto = mongoose_1.default.model("produtos", produtosSchema);

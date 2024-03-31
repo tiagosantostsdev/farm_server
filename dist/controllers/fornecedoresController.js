@@ -19,6 +19,7 @@ const CreateFornecedor = (req, res) => __awaiter(void 0, void 0, void 0, functio
                 .status(400)
                 .send({ message: "Por favor preencha todos os campos" });
         }
+        const date = new Date();
         const fornecedor = yield (0, fornecedoresService_1.createFornecedores)({
             nome,
             nif,
@@ -26,6 +27,7 @@ const CreateFornecedor = (req, res) => __awaiter(void 0, void 0, void 0, functio
             telefone,
             email,
             site,
+            dataRegistro: date.toLocaleString(),
         });
         if (!fornecedor) {
             return res.status(400).send({ message: "Erro ao criar novo fornecedor" });
@@ -61,15 +63,13 @@ exports.FindFornecedor = FindFornecedor;
 const UpdateFornecedor = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req;
-        const { nome, telefone, endereco } = req.body;
-        if (!nome && !telefone && !endereco) {
-            return res
-                .status(400)
-                .send({
+        const { nome, telefone, endereco, site } = req.body;
+        if (!nome && !telefone && !endereco && !site) {
+            return res.status(400).send({
                 message: "Por favor selecione ao menos um campo para ser alterado",
             });
         }
-        yield (0, fornecedoresService_1.updateFornecedores)(id, nome, telefone, endereco);
+        yield (0, fornecedoresService_1.updateFornecedores)(id, nome, telefone, endereco, site);
         res.status(200).send({ message: "Dados alterado com sucesso" });
     }
     catch (error) {
