@@ -12,7 +12,7 @@ export const fabricanteRoute = Router();
 
 fabricanteRoute.post("/novo", authAdmin, CreateFabricante);
 
-fabricanteRoute.get("/", FindFabricante);
+fabricanteRoute.get("/",authAdmin, FindFabricante);
 
 fabricanteRoute.patch("/update/:id", authAdmin, validId, UpdateFabricante);
 
