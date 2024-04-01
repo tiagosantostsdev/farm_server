@@ -22,7 +22,7 @@ export const CreateVendas = async (req: any, res: express.Response) => {
 
     const Vendas = await createVendas({
       nomeCliente: nomeCliente,
-      dataVenda: date.toLocaleString("pt-AO", {
+      dataVenda: date.toLocaleString("AO", {
         year: "numeric",
         month: "long",
         day: "numeric",

@@ -53,7 +53,7 @@ export const CreateFuncionario = async (
       senha: hash,
       nif,
       endereco,
-      dataRegistro: date.toLocaleString("pt-AO", {
+      dataRegistro: date.toLocaleString("AO", {
         year: "numeric",
         month: "long",
         day: "numeric",

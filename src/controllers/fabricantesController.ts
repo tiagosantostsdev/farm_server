@@ -33,7 +33,7 @@ export const CreateFabricante = async (
       endereco,
       telefone,
       email,
-      dataRegistro: date.toLocaleString("pt-AO", {
+      dataRegistro: date.toLocaleString("AO", {
         year: "numeric",
         month: "long",
         day: "numeric",
