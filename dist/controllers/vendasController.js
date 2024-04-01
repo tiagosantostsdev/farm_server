@@ -24,7 +24,14 @@ const CreateVendas = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         const date = new Date();
         const Vendas = yield (0, vendasService_1.createVendas)({
             nomeCliente: nomeCliente,
-            dataVenda: date.toLocaleString(),
+            dataVenda: date.toLocaleString("AO", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric",
+            }),
             Funcionario: funcionarioId,
         });
         if (!Vendas) {
@@ -45,12 +52,11 @@ exports.CreateVendas = CreateVendas;
 const UpdateVendasById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        const { valor } = req.body;
-        let total = 0;
-        if (!id || !valor) {
+        const { valor, total, troco } = req.body;
+        if (!id || !valor || !total || !troco) {
             return res
                 .status(400)
-                .send({ message: "Id de venda e Valor obrigatório" });
+                .send({ message: "Id, Valor, total, troco obrigatório" });
         }
         const carrinho = yield (0, carrinhoService_1.findCarrinho)();
         carrinho.map((item) => getProdutos({
@@ -72,15 +78,9 @@ const UpdateVendasById = (req, res) => __awaiter(void 0, void 0, void 0, functio
                 }
             });
         }
-        const calc = yield (0, vendasService_1.findVendaById)(id);
-        const produtos = (calc === null || calc === void 0 ? void 0 : calc.produtos) || [];
-        produtos.forEach((item) => {
-            total = total + item.total;
-        });
         if (valor < total || valor - total < 0) {
             return res.status(400).send({ message: "Valor insuficiente" });
         }
-        let troco = valor - total;
         const update = yield (0, vendasService_1.updateVendaCalc)(id, valor, total, troco);
         if (!update) {
             return res

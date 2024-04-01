@@ -27,7 +27,14 @@ const CreateFornecedor = (req, res) => __awaiter(void 0, void 0, void 0, functio
             telefone,
             email,
             site,
-            dataRegistro: date.toLocaleString(),
+            dataRegistro: date.toLocaleString("AO", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric",
+            }),
         });
         if (!fornecedor) {
             return res.status(400).send({ message: "Erro ao criar novo fornecedor" });

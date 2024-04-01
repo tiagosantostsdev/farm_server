@@ -32,7 +32,14 @@ const CreateProdutos = (req, res) => __awaiter(void 0, void 0, void 0, function*
             preco,
             fornecedor,
             fabricante,
-            dataRegistro: date.toLocaleString(),
+            dataRegistro: date.toLocaleString("AO", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric",
+            }),
         });
         if (!produtos) {
             return res.status(400).send({ message: "Erro ao criar novos produtos" });

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateCarrinho = exports.DeleteCarrinho = exports.FindCarrinho = exports.CreateCarrinho = void 0;
+exports.DeleteCarrinho = exports.FindCarrinho = exports.CreateCarrinho = void 0;
 const produtosService_1 = require("../services/produtosService");
 const carrinhoService_1 = require("../services/carrinhoService");
 const CreateCarrinho = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -74,11 +74,11 @@ const CreateCarrinho = (req, res) => __awaiter(void 0, void 0, void 0, function*
 exports.CreateCarrinho = CreateCarrinho;
 const FindCarrinho = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        let total = 0;
         const item = yield (0, carrinhoService_1.findCarrinho)();
         if (item.length === 0) {
             return res.status(400).send({ message: "Nenhum produto encontrado" });
         }
-        let total = 0;
         item.forEach((item) => {
             total = total + item.total;
         });
@@ -104,14 +104,14 @@ const DeleteCarrinho = (req, res) => __awaiter(void 0, void 0, void 0, function*
         if (!item) {
             return res.status(400).send({ message: "Produto não encontrado" });
         }
-        const produto = yield (0, produtosService_1.searchProdutos)(item.nome);
+        const produto = yield (0, produtosService_1.searchProdutos)(item === null || item === void 0 ? void 0 : item.nome);
         produto.map((item) => deletarActualizar({
             id: item.id,
             quantidade: item.quantidade,
         }));
         function deletarActualizar(params) {
             return __awaiter(this, void 0, void 0, function* () {
-                yield (0, produtosService_1.updateProdutoCarrinho)(params.id, (params.quantidade += item.quantidade));
+                yield (0, produtosService_1.updateProdutoCarrinho)(params.id, (params.quantidade += item === null || item === void 0 ? void 0 : item.quantidade));
                 yield (0, carrinhoService_1.deleteCarrinho)(id);
             });
         }
@@ -125,52 +125,54 @@ const DeleteCarrinho = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.DeleteCarrinho = DeleteCarrinho;
-const UpdateCarrinho = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const { id } = req.params;
-        if (!id) {
-            return res
-                .status(400)
-                .send({ message: "Insira o id do produto por favor" });
-        }
-        const item = yield (0, carrinhoService_1.findCarrinhoById)(id);
-        if (!item) {
-            return res.status(400).send({ message: "Produto não encontrado" });
-        }
-        const produto = yield (0, produtosService_1.searchProdutos)(item.nome);
-        if (!produto) {
-            return res.status(400).send({ message: "Produto não encontrado" });
-        }
-        produto.map((item) => buscarActualizar({
-            id: item.id,
-            quantidade: item.quantidade,
-        }));
-        function buscarActualizar(params) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const { quantidade } = req.body;
-                if (quantidade > params.quantidade ||
-                    params.quantidade - quantidade < 0) {
-                    return res.status(400).send({
-                        message: "Quantidade no estoque inferior a quantidade pretendida",
-                    });
-                }
-                if (quantidade < item.quantidade) {
-                    yield (0, carrinhoService_1.updateCarrinho)(id, item.quantidade - quantidade);
-                    yield (0, produtosService_1.updateProdutoCarrinho)(params.id, params.quantidade + quantidade);
-                }
-                else {
-                    yield (0, carrinhoService_1.updateCarrinho)(id, item.quantidade + quantidade);
-                    yield (0, produtosService_1.updateProdutoCarrinho)(params.id, params.quantidade - quantidade);
-                }
-                res.status(200).send({ message: "Produto actualizado com sucesso" });
-            });
-        }
-    }
-    catch (error) {
-        if (error instanceof Error) {
-            console.log({ message: error.message });
-            return res.status(500).send({ message: error.message });
-        }
-    }
-});
-exports.UpdateCarrinho = UpdateCarrinho;
+// export const UpdateCarrinho = async (
+//   req: express.Request,
+//   res: express.Response
+// ) => {
+//   try {
+//     const { id } = req.params as { id: string };
+//     if (!id) {
+//       return res
+//         .status(400)
+//         .send({ message: "Insira o id do produto por favor" });
+//     }
+//     const item = await findCarrinhoById(id);
+//     if (!item) {
+//       return res.status(400).send({ message: "Produto não encontrado" });
+//     }
+//     const produto = await searchProdutos(item.nome);
+//     if (!produto) {
+//       return res.status(400).send({ message: "Produto não encontrado" });
+//     }
+//     produto.map((item) =>
+//       buscarActualizar({
+//         id: item.id,
+//         quantidade: item.quantidade,
+//       })
+//     );
+//     async function buscarActualizar(params: Record<string, any>) {
+//       const { quantidade } = req.body as { quantidade: number };
+//       if (
+//         quantidade > params.quantidade ||
+//         params.quantidade - quantidade < 0
+//       ) {
+//         return res.status(400).send({
+//           message: "Quantidade no estoque inferior a quantidade pretendida",
+//         });
+//       }
+//       if (quantidade < item.quantidade) {
+//         await updateCarrinho(id, item.quantidade - quantidade);
+//         await updateProdutoCarrinho(params.id, params.quantidade + quantidade);
+//       } else {
+//         await updateCarrinho(id, item.quantidade + quantidade);
+//         await updateProdutoCarrinho(params.id, params.quantidade - quantidade);
+//       }
+//       res.status(200).send({ message: "Produto actualizado com sucesso" });
+//     }
+//   } catch (error) {
+//     if (error instanceof Error) {
+//       console.log({ message: error.message });
+//       return res.status(500).send({ message: error.message });
+//     }
+//   }
+// };

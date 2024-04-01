@@ -87,12 +87,12 @@ export const FindCarrinho = async (
   res: express.Response
 ) => {
   try {
+    let total: number = 0;
     const item = await findCarrinho();
     if (item.length === 0) {
       return res.status(400).send({ message: "Nenhum produto encontrado" });
     }
 
-    let total: number = 0;
     item.forEach((item) => {
       total = total + item.total;
     });
@@ -123,7 +123,7 @@ export const DeleteCarrinho = async (
       return res.status(400).send({ message: "Produto não encontrado" });
     }
 
-    const produto = await searchProdutos(item.nome);
+    const produto = await searchProdutos(item?.nome);
     produto.map((item) =>
       deletarActualizar({
         id: item.id,
@@ -134,7 +134,7 @@ export const DeleteCarrinho = async (
     async function deletarActualizar(params: Record<string, any>) {
       await updateProdutoCarrinho(
         params.id,
-        (params.quantidade += item.quantidade)
+        (params.quantidade += item?.quantidade)
       );
       await deleteCarrinho(id);
     }
@@ -148,59 +148,59 @@ export const DeleteCarrinho = async (
   }
 };
 
-export const UpdateCarrinho = async (
-  req: express.Request,
-  res: express.Response
-) => {
-  try {
-    const { id } = req.params as { id: string };
+// export const UpdateCarrinho = async (
+//   req: express.Request,
+//   res: express.Response
+// ) => {
+//   try {
+//     const { id } = req.params as { id: string };
 
-    if (!id) {
-      return res
-        .status(400)
-        .send({ message: "Insira o id do produto por favor" });
-    }
+//     if (!id) {
+//       return res
+//         .status(400)
+//         .send({ message: "Insira o id do produto por favor" });
+//     }
 
-    const item = await findCarrinhoById(id);
-    if (!item) {
-      return res.status(400).send({ message: "Produto não encontrado" });
-    }
+//     const item = await findCarrinhoById(id);
+//     if (!item) {
+//       return res.status(400).send({ message: "Produto não encontrado" });
+//     }
 
-    const produto = await searchProdutos(item.nome);
-    if (!produto) {
-      return res.status(400).send({ message: "Produto não encontrado" });
-    }
+//     const produto = await searchProdutos(item.nome);
+//     if (!produto) {
+//       return res.status(400).send({ message: "Produto não encontrado" });
+//     }
 
-    produto.map((item) =>
-      buscarActualizar({
-        id: item.id,
-        quantidade: item.quantidade,
-      })
-    );
+//     produto.map((item) =>
+//       buscarActualizar({
+//         id: item.id,
+//         quantidade: item.quantidade,
+//       })
+//     );
 
-    async function buscarActualizar(params: Record<string, any>) {
-      const { quantidade } = req.body as { quantidade: number };
-      if (
-        quantidade > params.quantidade ||
-        params.quantidade - quantidade < 0
-      ) {
-        return res.status(400).send({
-          message: "Quantidade no estoque inferior a quantidade pretendida",
-        });
-      }
-      if (quantidade < item.quantidade) {
-        await updateCarrinho(id, item.quantidade - quantidade);
-        await updateProdutoCarrinho(params.id, params.quantidade + quantidade);
-      } else {
-        await updateCarrinho(id, item.quantidade + quantidade);
-        await updateProdutoCarrinho(params.id, params.quantidade - quantidade);
-      }
-      res.status(200).send({ message: "Produto actualizado com sucesso" });
-    }
-  } catch (error) {
-    if (error instanceof Error) {
-      console.log({ message: error.message });
-      return res.status(500).send({ message: error.message });
-    }
-  }
-};
+//     async function buscarActualizar(params: Record<string, any>) {
+//       const { quantidade } = req.body as { quantidade: number };
+//       if (
+//         quantidade > params.quantidade ||
+//         params.quantidade - quantidade < 0
+//       ) {
+//         return res.status(400).send({
+//           message: "Quantidade no estoque inferior a quantidade pretendida",
+//         });
+//       }
+//       if (quantidade < item.quantidade) {
+//         await updateCarrinho(id, item.quantidade - quantidade);
+//         await updateProdutoCarrinho(params.id, params.quantidade + quantidade);
+//       } else {
+//         await updateCarrinho(id, item.quantidade + quantidade);
+//         await updateProdutoCarrinho(params.id, params.quantidade - quantidade);
+//       }
+//       res.status(200).send({ message: "Produto actualizado com sucesso" });
+//     }
+//   } catch (error) {
+//     if (error instanceof Error) {
+//       console.log({ message: error.message });
+//       return res.status(500).send({ message: error.message });
+//     }
+//   }
+// };

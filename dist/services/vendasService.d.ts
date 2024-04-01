@@ -132,51 +132,6 @@ export declare const updateVendaCalc: (id: string, valor: number, total: number,
     dataVenda: string;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }, "findOneAndUpdate">;
-export declare const findVendaById: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
-    produtos: any[];
-    total: number;
-    nomeCliente: string;
-    valor: number;
-    troco: number;
-    dataVenda: string;
-    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
-}> & {
-    produtos: any[];
-    total: number;
-    nomeCliente: string;
-    valor: number;
-    troco: number;
-    dataVenda: string;
-    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
-} & {
-    _id: import("mongoose").Types.ObjectId;
-}) | null, import("mongoose").Document<unknown, {}, {
-    produtos: any[];
-    total: number;
-    nomeCliente: string;
-    valor: number;
-    troco: number;
-    dataVenda: string;
-    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
-}> & {
-    produtos: any[];
-    total: number;
-    nomeCliente: string;
-    valor: number;
-    troco: number;
-    dataVenda: string;
-    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
-} & {
-    _id: import("mongoose").Types.ObjectId;
-}, {}, {
-    produtos: any[];
-    total: number;
-    nomeCliente: string;
-    valor: number;
-    troco: number;
-    dataVenda: string;
-    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
-}, "findOne">;
 export declare const findVendas: () => import("mongoose").Query<Omit<import("mongoose").Document<unknown, {}, {
     produtos: any[];
     total: number;
