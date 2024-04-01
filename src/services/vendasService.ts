@@ -27,6 +27,4 @@ export const updateVendaCalc = (
     { valor: valor, total: total, troco: troco }
   );
 
-export const findVendaById = (id: string) => Vendas.findById(id);
-
-export const findVendas = () => Vendas.find().populate("Funcionario")
+export const findVendas = () => Vendas.find().populate("Funcionario");

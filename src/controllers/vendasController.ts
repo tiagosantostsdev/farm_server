@@ -3,7 +3,6 @@ import { deleteCarrinho, findCarrinho } from "../services/carrinhoService";
 import {
   addProdutos,
   createVendas,
-  findVendaById,
   findVendas,
   updateVendaCalc,
 } from "../services/vendasService";
@@ -46,13 +45,12 @@ export const UpdateVendasById = async (
 ) => {
   try {
     const { id } = req.params as { id: string };
-    const { valor } = req.body as { valor: number };
-    let total:number = 0;
+    const { valor, total, troco } = req.body as { valor: number, total:number, troco:number };
 
-    if (!id || !valor) {
+    if (!id || !valor|| !total || !troco) {
       return res
         .status(400)
-        .send({ message: "Id de venda e Valor obrigatório" });
+        .send({ message: "Id, Valor, total, troco obrigatório" });
     }
     
     const carrinho = await findCarrinho();
@@ -66,6 +64,7 @@ export const UpdateVendasById = async (
         total: item.total,
       })
     );
+    
     async function getProdutos(params: Record<string, any>) {
       const produtos = await addProdutos(
         id,
@@ -83,19 +82,11 @@ export const UpdateVendasById = async (
           .send({ message: "Falha ao adicionar produtos para venda" });
       }
     }
-
-    const calc = await findVendaById(id);
-    const produtos = calc?.produtos || [];
-    
-    produtos.forEach((item)=>{
-      total = total + item.total
-    })
     
     if (valor < total || valor - total < 0) {
       return res.status(400).send({ message: "Valor insuficiente" });
     }
     
-    let troco: number = valor - total;
     const update = await updateVendaCalc(id, valor, total, troco);
     if (!update) {
       return res
