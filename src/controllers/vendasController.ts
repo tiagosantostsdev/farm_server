@@ -22,7 +22,14 @@ export const CreateVendas = async (req: any, res: express.Response) => {
 
     const Vendas = await createVendas({
       nomeCliente: nomeCliente,
-      dataVenda: date.toLocaleString(),
+      dataVenda: date.toLocaleString("pt-AO", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      }),
       Funcionario: funcionarioId,
     });
     if (!Vendas) {
@@ -45,14 +52,18 @@ export const UpdateVendasById = async (
 ) => {
   try {
     const { id } = req.params as { id: string };
-    const { valor, total, troco } = req.body as { valor: number, total:number, troco:number };
+    const { valor, total, troco } = req.body as {
+      valor: number;
+      total: number;
+      troco: number;
+    };
 
-    if (!id || !valor|| !total || !troco) {
+    if (!id || !valor || !total || !troco) {
       return res
         .status(400)
         .send({ message: "Id, Valor, total, troco obrigatório" });
     }
-    
+
     const carrinho = await findCarrinho();
     carrinho.map((item) =>
       getProdutos({
@@ -64,7 +75,7 @@ export const UpdateVendasById = async (
         total: item.total,
       })
     );
-    
+
     async function getProdutos(params: Record<string, any>) {
       const produtos = await addProdutos(
         id,
@@ -82,11 +93,11 @@ export const UpdateVendasById = async (
           .send({ message: "Falha ao adicionar produtos para venda" });
       }
     }
-    
+
     if (valor < total || valor - total < 0) {
       return res.status(400).send({ message: "Valor insuficiente" });
     }
-    
+
     const update = await updateVendaCalc(id, valor, total, troco);
     if (!update) {
       return res

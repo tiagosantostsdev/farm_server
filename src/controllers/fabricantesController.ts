@@ -33,7 +33,14 @@ export const CreateFabricante = async (
       endereco,
       telefone,
       email,
-      dataRegistro: date.toLocaleString(),
+      dataRegistro: date.toLocaleString("pt-AO", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      }),
     });
     if (!fabricante) {
       return res.status(400).send({ message: "Erro ao criar novo fabricante" });
