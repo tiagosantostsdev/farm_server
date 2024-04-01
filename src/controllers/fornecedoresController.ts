@@ -34,7 +34,7 @@ export const CreateFornecedor = async (
       telefone,
       email,
       site,
-      dataRegistro: date.toLocaleString("AO", {
+      dataRegistro: date.toLocaleString("pt-AO", {
         year: "numeric",
         month: "long",
         day: "numeric",

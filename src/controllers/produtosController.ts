@@ -51,7 +51,7 @@ export const CreateProdutos = async (
       preco,
       fornecedor,
       fabricante,
-      dataRegistro: date.toLocaleString("AO", {
+      dataRegistro: date.toLocaleString("pt-AO", {
         year: "numeric",
         month: "long",
         day: "numeric",
