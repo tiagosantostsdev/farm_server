@@ -4,7 +4,7 @@ import {
   CreateCarrinho,
   DeleteCarrinho,
   FindCarrinho,
-  // UpdateCarrinho,
+  UpdateCarrinho,
 } from "./../controllers/carrinhoController";
 import { authFuncionario } from "../middlewares/authMiddleware";
 
@@ -16,4 +16,4 @@ carrinhoRoute.get("/", authFuncionario, FindCarrinho);
 
 carrinhoRoute.delete("/delete/:id", authFuncionario, DeleteCarrinho);
 
-// carrinhoRoute.patch("/update/:id", authFuncionario, UpdateCarrinho);
+carrinhoRoute.patch("/update/:id", authFuncionario, UpdateCarrinho);
