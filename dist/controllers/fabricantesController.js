@@ -27,7 +27,7 @@ const CreateFabricante = (req, res) => __awaiter(void 0, void 0, void 0, functio
             endereco,
             telefone,
             email,
-            dataRegistro: date.toLocaleString("AO", {
+            dataRegistro: date.toLocaleString("pt-AO", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",

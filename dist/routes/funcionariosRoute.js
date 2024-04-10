@@ -7,6 +7,8 @@ const funcionariosController_1 = require("../controllers/funcionariosController"
 const globalMiddleware_1 = require("../middlewares/globalMiddleware");
 exports.funcionarioRoute = (0, express_1.Router)();
 exports.funcionarioRoute.post("/novo", authMiddleware_1.authAdmin, funcionariosController_1.CreateFuncionario);
+exports.funcionarioRoute.post("/esqueci-a-senha", funcionariosController_1.SolicitarRedefinicaoSenhaFunc);
+exports.funcionarioRoute.post("/redefinir-senha", funcionariosController_1.RedefinirSenhaFunc);
 exports.funcionarioRoute.get("/", authMiddleware_1.authAdmin, funcionariosController_1.FindFuncionario);
 exports.funcionarioRoute.get("/findbyid", authMiddleware_1.authFuncionario, funcionariosController_1.FindFuncionarioById);
 exports.funcionarioRoute.patch("/update/:id", authMiddleware_1.authAdmin, globalMiddleware_1.validId, funcionariosController_1.UpdateFuncionario);

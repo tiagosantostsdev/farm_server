@@ -24,7 +24,7 @@ const CreateVendas = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         const date = new Date();
         const Vendas = yield (0, vendasService_1.createVendas)({
             nomeCliente: nomeCliente,
-            dataVenda: date.toLocaleString("AO", {
+            dataVenda: date.toLocaleString("pt-AO", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",

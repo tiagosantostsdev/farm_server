@@ -31,6 +31,7 @@ export declare const Funcionario: mongoose.Model<{
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -50,6 +51,7 @@ export declare const Funcionario: mongoose.Model<{
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -69,6 +71,7 @@ export declare const Funcionario: mongoose.Model<{
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -90,6 +93,7 @@ export declare const Funcionario: mongoose.Model<{
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -109,6 +113,7 @@ export declare const Funcionario: mongoose.Model<{
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -128,6 +133,7 @@ export declare const Funcionario: mongoose.Model<{
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {

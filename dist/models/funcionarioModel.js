@@ -12,9 +12,10 @@ const funcionariosSchema = new mongoose_1.default.Schema({
     endereco: { type: String, required: true },
     dataRegistro: { type: String, required: true },
     telemovel: { type: String, required: true },
-    email: { type: String },
+    email: { type: String, rquired: true },
     genero: { type: String, rquired: true },
     dataNascimento: { type: String, required: true },
     Admin: { type: mongoose_1.default.Types.ObjectId, ref: "admin" },
+    codeVerify: { type: String, default: undefined },
 });
 exports.Funcionario = mongoose_1.default.model("funcionarios", funcionariosSchema);

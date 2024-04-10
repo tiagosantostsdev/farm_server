@@ -32,7 +32,7 @@ const CreateProdutos = (req, res) => __awaiter(void 0, void 0, void 0, function*
             preco,
             fornecedor,
             fabricante,
-            dataRegistro: date.toLocaleString("AO", {
+            dataRegistro: date.toLocaleString("pt-AO", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",

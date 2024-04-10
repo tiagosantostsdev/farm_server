@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteAdmin = exports.RedefinirSenha = exports.SolicitarRedefinicaoSenha = exports.UpdateAdmin = exports.FindAdminById = exports.FindAdmin = exports.CreateAdmin = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const adminService_1 = require("../services/adminService");
-const configController_1 = require("./configController");
+const ResetPasswordEmail_1 = require("../config/ResetPasswordEmail");
 const CreateAdmin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { admin, email, telemovel, password, avatar } = req.body;
@@ -115,7 +115,7 @@ const SolicitarRedefinicaoSenha = (req, res) => __awaiter(void 0, void 0, void 0
         const codigo = Math.floor(100000 + Math.random() * 900000).toString();
         admin.codeVerify = codigo;
         yield admin.save();
-        (0, configController_1.sentEmailVerification)(admin.email, codigo);
+        (0, ResetPasswordEmail_1.sentEmailVerification)(admin.email, codigo);
         res.status(200).send({ message: "Verifique o seu email por favor" });
     }
     catch (error) {
@@ -129,9 +129,12 @@ exports.SolicitarRedefinicaoSenha = SolicitarRedefinicaoSenha;
 const RedefinirSenha = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { email, codigo, password } = req.body;
+        if (!email || !codigo || !password) {
+            return res.status(400).send({ message: "Codigo, email, e nova senha obrigatório" });
+        }
         const admin = yield (0, adminService_1.findOneAdmin)(email);
         if (!admin || admin.codeVerify !== codigo) {
-            return res.status(400).send({ message: "Código inválido" });
+            return res.status(400).send({ message: "código inválido" });
         }
         const hash = bcrypt_1.default.hashSync(password, 10);
         admin.password = hash;

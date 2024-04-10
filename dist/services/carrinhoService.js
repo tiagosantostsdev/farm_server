@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findCarrinhoById = exports.deleteCarrinho = exports.findCarrinho = exports.createCarrinho = void 0;
+exports.updateCarrinho = exports.findCarrinhoById = exports.deleteCarrinho = exports.findCarrinho = exports.createCarrinho = void 0;
 const carrinhoModel_1 = require("../models/carrinhoModel");
 const createCarrinho = (values) => carrinhoModel_1.Carrinho.create(values);
 exports.createCarrinho = createCarrinho;
@@ -10,5 +10,5 @@ const deleteCarrinho = (id) => carrinhoModel_1.Carrinho.findByIdAndDelete(id);
 exports.deleteCarrinho = deleteCarrinho;
 const findCarrinhoById = (id) => carrinhoModel_1.Carrinho.findById(id);
 exports.findCarrinhoById = findCarrinhoById;
-// export const updateCarrinho = (id: string, quantidade: number) =>
-//   Carrinho.findOneAndUpdate({ _id: id }, { quantidade: quantidade });
+const updateCarrinho = (id, quantidade) => carrinhoModel_1.Carrinho.findOneAndUpdate({ _id: id }, { quantidade: quantidade });
+exports.updateCarrinho = updateCarrinho;

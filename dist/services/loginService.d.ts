@@ -71,6 +71,7 @@ export declare const findFuncionarioLogin: (usuario: string) => import("mongoose
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -90,6 +91,7 @@ export declare const findFuncionarioLogin: (usuario: string) => import("mongoose
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -111,6 +113,7 @@ export declare const findFuncionarioLogin: (usuario: string) => import("mongoose
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -130,6 +133,7 @@ export declare const findFuncionarioLogin: (usuario: string) => import("mongoose
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -151,6 +155,7 @@ export declare const findFuncionarioLogin: (usuario: string) => import("mongoose
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {

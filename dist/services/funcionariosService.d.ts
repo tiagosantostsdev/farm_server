@@ -31,6 +31,7 @@ export declare const createFuncionario: (values: Record<string, any>) => Promise
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -50,6 +51,7 @@ export declare const createFuncionario: (values: Record<string, any>) => Promise
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -72,6 +74,7 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -91,6 +94,7 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -112,6 +116,7 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -131,6 +136,7 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -152,6 +158,7 @@ export declare const findFuncionarios: () => import("mongoose").Query<(import("m
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -172,6 +179,7 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -191,6 +199,7 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -212,6 +221,7 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -231,6 +241,7 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -252,6 +263,112 @@ export declare const findFuncionarioById: (id: string) => import("mongoose").Que
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+    nif?: string | null | undefined;
+    genero?: string | null | undefined;
+    Admin?: {
+        prototype?: import("mongoose").Types.ObjectId | null | undefined;
+        cacheHexString?: unknown;
+        generate?: {} | null | undefined;
+        createFromTime?: {} | null | undefined;
+        createFromHexString?: {} | null | undefined;
+        createFromBase64?: {} | null | undefined;
+        isValid?: {} | null | undefined;
+    } | null | undefined;
+}, "findOne">;
+export declare const findOneFuncionario: (email: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    telemovel: string;
+    usuario: string;
+    senha: string;
+    endereco: string;
+    dataRegistro: string;
+    dataNascimento: string;
+    email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+    nif?: string | null | undefined;
+    genero?: string | null | undefined;
+    Admin?: {
+        prototype?: import("mongoose").Types.ObjectId | null | undefined;
+        cacheHexString?: unknown;
+        generate?: {} | null | undefined;
+        createFromTime?: {} | null | undefined;
+        createFromHexString?: {} | null | undefined;
+        createFromBase64?: {} | null | undefined;
+        isValid?: {} | null | undefined;
+    } | null | undefined;
+}> & {
+    telemovel: string;
+    usuario: string;
+    senha: string;
+    endereco: string;
+    dataRegistro: string;
+    dataNascimento: string;
+    email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+    nif?: string | null | undefined;
+    genero?: string | null | undefined;
+    Admin?: {
+        prototype?: import("mongoose").Types.ObjectId | null | undefined;
+        cacheHexString?: unknown;
+        generate?: {} | null | undefined;
+        createFromTime?: {} | null | undefined;
+        createFromHexString?: {} | null | undefined;
+        createFromBase64?: {} | null | undefined;
+        isValid?: {} | null | undefined;
+    } | null | undefined;
+} & {
+    _id: import("mongoose").Types.ObjectId;
+}) | null, import("mongoose").Document<unknown, {}, {
+    telemovel: string;
+    usuario: string;
+    senha: string;
+    endereco: string;
+    dataRegistro: string;
+    dataNascimento: string;
+    email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+    nif?: string | null | undefined;
+    genero?: string | null | undefined;
+    Admin?: {
+        prototype?: import("mongoose").Types.ObjectId | null | undefined;
+        cacheHexString?: unknown;
+        generate?: {} | null | undefined;
+        createFromTime?: {} | null | undefined;
+        createFromHexString?: {} | null | undefined;
+        createFromBase64?: {} | null | undefined;
+        isValid?: {} | null | undefined;
+    } | null | undefined;
+}> & {
+    telemovel: string;
+    usuario: string;
+    senha: string;
+    endereco: string;
+    dataRegistro: string;
+    dataNascimento: string;
+    email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
+    nif?: string | null | undefined;
+    genero?: string | null | undefined;
+    Admin?: {
+        prototype?: import("mongoose").Types.ObjectId | null | undefined;
+        cacheHexString?: unknown;
+        generate?: {} | null | undefined;
+        createFromTime?: {} | null | undefined;
+        createFromHexString?: {} | null | undefined;
+        createFromBase64?: {} | null | undefined;
+        isValid?: {} | null | undefined;
+    } | null | undefined;
+} & {
+    _id: import("mongoose").Types.ObjectId;
+}, {}, {
+    telemovel: string;
+    usuario: string;
+    senha: string;
+    endereco: string;
+    dataRegistro: string;
+    dataNascimento: string;
+    email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -272,6 +389,7 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -291,6 +409,7 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -312,6 +431,7 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -331,6 +451,7 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -352,6 +473,7 @@ export declare const deleteFuncionario: (id: string) => import("mongoose").Query
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -372,6 +494,7 @@ export declare const updateFuncionario: (id: string, usuario: string, telemovel:
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -391,6 +514,7 @@ export declare const updateFuncionario: (id: string, usuario: string, telemovel:
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -412,6 +536,7 @@ export declare const updateFuncionario: (id: string, usuario: string, telemovel:
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -431,6 +556,7 @@ export declare const updateFuncionario: (id: string, usuario: string, telemovel:
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
@@ -452,6 +578,7 @@ export declare const updateFuncionario: (id: string, usuario: string, telemovel:
     dataRegistro: string;
     dataNascimento: string;
     email?: string | null | undefined;
+    codeVerify?: string | null | undefined;
     nif?: string | null | undefined;
     genero?: string | null | undefined;
     Admin?: {
