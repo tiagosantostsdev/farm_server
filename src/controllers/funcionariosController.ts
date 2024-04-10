@@ -4,9 +4,11 @@ import {
   deleteFuncionario,
   findFuncionarioById,
   findFuncionarios,
+  findOneFuncionario,
   updateFuncionario,
 } from "../services/funcionariosService";
 import bcrypt from "bcrypt";
+import { sentEmailVerification } from "../config/ResetPasswordEmail";
 
 export const CreateFuncionario = async (
   req: express.Request,
@@ -88,10 +90,10 @@ export const FindFuncionario = async (
 ) => {
   try {
     const funcionario = await findFuncionarios();
-    if (!funcionario) {
+    if (funcionario.length === 0) {
       return res
         .status(404)
-        .send({ message: "Nenhuma funcionário foi encontrado" });
+        .send({ message: "Nenhum funcionário foi encontrado" });
     }
     res.status(200).send(funcionario);
   } catch (error) {
@@ -151,6 +153,73 @@ export const DeleteFuncionario = async (req: any, res: express.Response) => {
       return res.status(400).send({ message: "Erro ao deletar funcionario" });
     }
     res.status(200).send({ message: "Funcionario deletado com sucesso" });
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log({ message: error.message });
+      return res.status(500).send({ message: error.message });
+    }
+  }
+};
+
+export const SolicitarRedefinicaoSenhaFunc = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { email } = req.body as { email: string };
+    if (!email) {
+      return res
+        .status(400)
+        .send({ message: "Email de funcionário necessário" });
+    }
+
+    const funcionarios = await findOneFuncionario(email);
+    if (!funcionarios) {
+      return res.status(400).send({ message: "Funcionário não encontrado" });
+    }
+
+    const codigo = Math.floor(100000 + Math.random() * 900000).toString();
+    funcionarios.codeVerify = codigo;
+    await funcionarios.save();
+    sentEmailVerification(String(funcionarios.email), codigo);
+
+    res.status(200).send({ message: "Verifique o seu email por favor" });
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log({ message: error });
+      return res.status(500).send({ message: error.message });
+    }
+  }
+};
+
+export const RedefinirSenhaFunc = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { email, codigo, senha } = req.body as {
+      email: string;
+      codigo: string;
+      senha: string;
+    };
+
+    if (!email || !codigo || !senha) {
+      return res
+        .status(400)
+        .send({ message: "Email, codigo e nova senha obrigatório" });
+    }
+
+    const funcionario = await findOneFuncionario(email)
+    if(!funcionario || funcionario.codeVerify !== codigo){
+      return res.status(400).send({message: "Email ou código inválido"})
+    }
+
+    const hash = bcrypt.hashSync(senha, 10)
+    funcionario.senha = hash
+    funcionario.codeVerify = undefined
+    await funcionario.save()
+
+    res.status(200).send({message: "Senha de funcionário actualizado"});
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });

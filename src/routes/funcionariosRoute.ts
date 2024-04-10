@@ -5,6 +5,8 @@ import {
   DeleteFuncionario,
   FindFuncionario,
   FindFuncionarioById,
+  RedefinirSenhaFunc,
+  SolicitarRedefinicaoSenhaFunc,
   UpdateFuncionario,
 } from "../controllers/funcionariosController";
 import { validId } from "../middlewares/globalMiddleware";
@@ -12,6 +14,10 @@ import { validId } from "../middlewares/globalMiddleware";
 export const funcionarioRoute = Router();
 
 funcionarioRoute.post("/novo", authAdmin, CreateFuncionario);
+
+funcionarioRoute.post("/esqueci-a-senha", SolicitarRedefinicaoSenhaFunc);
+
+funcionarioRoute.post("/redefinir-senha", RedefinirSenhaFunc);
 
 funcionarioRoute.get("/", authAdmin, FindFuncionario);
 

@@ -7,6 +7,9 @@ export const findFuncionarios = () => Funcionario.find();
 
 export const findFuncionarioById = (id: string) => Funcionario.findById(id);
 
+export const findOneFuncionario = (email: string) =>
+  Funcionario.findOne({ email: email });
+
 export const deleteFuncionario = (id: string) =>
   Funcionario.findOneAndDelete({ _id: id });
 

@@ -8,7 +8,7 @@ import {
   findOneAdmin,
   updateAdmin,
 } from "../services/adminService";
-import { sentEmailVerification } from "./configController";
+import { sentEmailVerification } from "../config/ResetPasswordEmail";
 
 export const CreateAdmin = async (
   req: express.Request,
@@ -146,9 +146,14 @@ export const RedefinirSenha = async (
       codigo: string;
       password: string;
     };
+
+    if(!email || !codigo || !password){
+      return res.status(400).send({message:"Codigo, email, e nova senha obrigatório"})
+    }
+    
     const admin = await findOneAdmin(email);
     if (!admin || admin.codeVerify !== codigo) {
-      return res.status(400).send({ message: "Código inválido" });
+      return res.status(400).send({ message: "código inválido" });
     }
 
     const hash = bcrypt.hashSync(password, 10);
