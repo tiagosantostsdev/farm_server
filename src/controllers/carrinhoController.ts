@@ -97,7 +97,7 @@ export const FindCarrinho = async (
       total = total + item.total;
     });
 
-    res.status(200).send({item: item, total:total});
+    res.status(200).send({ item: item, total: total });
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });
@@ -161,7 +161,7 @@ export const UpdateCarrinho = async (
         .send({ message: "Insira o id do produto por favor" });
     }
 
-    const item = await findCarrinhoById(id);
+    const item: any = await findCarrinhoById(id);
     if (!item) {
       return res.status(400).send({ message: "Produto não encontrado" });
     }
