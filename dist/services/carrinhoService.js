@@ -6,7 +6,7 @@ const createCarrinho = (values) => carrinhoModel_1.Carrinho.create(values);
 exports.createCarrinho = createCarrinho;
 const findCarrinho = () => carrinhoModel_1.Carrinho.find().populate("Produto");
 exports.findCarrinho = findCarrinho;
-const deleteCarrinho = (id) => carrinhoModel_1.Carrinho.findByIdAndDelete(id);
+const deleteCarrinho = (id) => carrinhoModel_1.Carrinho.findOneAndDelete({ _id: id });
 exports.deleteCarrinho = deleteCarrinho;
 const findCarrinhoById = (id) => carrinhoModel_1.Carrinho.findById(id);
 exports.findCarrinhoById = findCarrinhoById;
