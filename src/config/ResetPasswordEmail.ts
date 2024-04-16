@@ -9,19 +9,22 @@ export const sentEmailVerification = (email: string, codigo: string) => {
   </body>
   </html>`;
 
+  const userEmail: string = String(process.env.EMAIL);
+  const userPass: string = String(process.env.PASS);
+
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     service: "gmail",
     port: 587,
     auth: {
-      user: "devsangola5@gmail.com",
-      pass: "hryy upwd vpew ixcw",
+      user: userEmail,
+      pass: userPass,
     },
   });
 
   transporter.sendMail(
     {
-      from: "devsangola5@gmail.com",
+      from: userEmail,
       to: email,
       subject: "Redefinição de palavra passe",
       html: contentHtml,
