@@ -27,7 +27,7 @@ const CreateFornecedor = (req, res) => __awaiter(void 0, void 0, void 0, functio
             telefone,
             email,
             site,
-            dataRegistro: date.toLocaleString("pt-AO", {
+            dataRegistro: date.toLocaleString("pt-AO", { timeZone: "Africa/Luanda",
                 year: "numeric",
                 month: "long",
                 day: "numeric",
