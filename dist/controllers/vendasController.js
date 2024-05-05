@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FindVendas = exports.UpdateVendasById = exports.CreateVendas = void 0;
+exports.DeleteVendas = exports.FindVendas = exports.UpdateVendasById = exports.CreateVendas = void 0;
 const carrinhoService_1 = require("../services/carrinhoService");
 const vendasService_1 = require("../services/vendasService");
 const CreateVendas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -24,7 +24,8 @@ const CreateVendas = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         const date = new Date();
         const Vendas = yield (0, vendasService_1.createVendas)({
             nomeCliente: nomeCliente,
-            dataVenda: date.toLocaleString("pt-AO", { timeZone: "Africa/Luanda",
+            dataVenda: date.toLocaleString("pt-AO", {
+                timeZone: "Africa/Luanda",
                 year: "numeric",
                 month: "long",
                 day: "numeric",
@@ -100,7 +101,7 @@ exports.UpdateVendasById = UpdateVendasById;
 const FindVendas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const vendas = yield (0, vendasService_1.findVendas)();
-        if (vendas.length === 0) {
+        if (!vendas) {
             return res.status(404).send({ message: "Nenhuma Venda registrada" });
         }
         res.status(200).send(vendas);
@@ -113,3 +114,20 @@ const FindVendas = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.FindVendas = FindVendas;
+const DeleteVendas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.params;
+        const vendas = yield (0, vendasService_1.deleteVendas)(id);
+        if (!(vendas === null || vendas === void 0 ? void 0 : vendas.id)) {
+            res.status(400).send({ message: "Falha ao deletar vendas" });
+        }
+        res.status(200).send({ message: "Registro de venda deletada" });
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            console.log({ message: error.message });
+            return res.status(500).send({ message: error.message });
+        }
+    }
+});
+exports.DeleteVendas = DeleteVendas;

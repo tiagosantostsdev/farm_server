@@ -28,3 +28,6 @@ export const updateVendaCalc = (
   );
 
 export const findVendas = () => Vendas.find().populate("Funcionario");
+
+export const deleteVendas = (id: string) =>
+  Vendas.findOneAndDelete({ _id: id });

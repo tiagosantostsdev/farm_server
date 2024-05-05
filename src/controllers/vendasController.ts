@@ -3,6 +3,7 @@ import { deleteCarrinho, findCarrinho } from "../services/carrinhoService";
 import {
   addProdutos,
   createVendas,
+  deleteVendas,
   findVendas,
   updateVendaCalc,
 } from "../services/vendasService";
@@ -22,7 +23,8 @@ export const CreateVendas = async (req: any, res: express.Response) => {
 
     const Vendas = await createVendas({
       nomeCliente: nomeCliente,
-      dataVenda: date.toLocaleString("pt-AO", {timeZone:"Africa/Luanda",
+      dataVenda: date.toLocaleString("pt-AO", {
+        timeZone: "Africa/Luanda",
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -120,14 +122,33 @@ export const FindVendas = async (
 ) => {
   try {
     const vendas = await findVendas();
-    if (vendas.length === 0) {
-      return res.status(404).send({ message: "Nenhuma Venda registrada" });
+    if (!vendas) {
+     return res.status(404).send({ message: "Nenhuma Venda registrada" });
     }
     res.status(200).send(vendas);
   } catch (error) {
     if (error instanceof Error) {
       console.log({ message: error.message });
       return res.status(400).send({ message: error.message });
+    }
+  }
+};
+
+export const DeleteVendas = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    const { id } = req.params as { id: string };
+    const vendas = await deleteVendas(id);
+    if (!vendas?.id) {
+      res.status(400).send({ message: "Falha ao deletar vendas" });
+    }
+    res.status(200).send({ message: "Registro de venda deletada" });
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log({ message: error.message });
+      return res.status(500).send({ message: error.message });
     }
   }
 };

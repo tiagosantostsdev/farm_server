@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findVendas = exports.updateVendaCalc = exports.addProdutos = exports.createVendas = void 0;
+exports.deleteVendas = exports.findVendas = exports.updateVendaCalc = exports.addProdutos = exports.createVendas = void 0;
 const vendasModel_1 = require("../models/vendasModel");
 const createVendas = (values) => vendasModel_1.Vendas.create(values);
 exports.createVendas = createVendas;
@@ -10,3 +10,5 @@ const updateVendaCalc = (id, valor, total, troco) => vendasModel_1.Vendas.findOn
 exports.updateVendaCalc = updateVendaCalc;
 const findVendas = () => vendasModel_1.Vendas.find().populate("Funcionario");
 exports.findVendas = findVendas;
+const deleteVendas = (id) => vendasModel_1.Vendas.findOneAndDelete({ _id: id });
+exports.deleteVendas = deleteVendas;

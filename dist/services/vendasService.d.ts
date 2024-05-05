@@ -177,3 +177,48 @@ export declare const findVendas: () => import("mongoose").Query<Omit<import("mon
     dataVenda: string;
     Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
 }, "find">;
+export declare const deleteVendas: (id: string) => import("mongoose").Query<(import("mongoose").Document<unknown, {}, {
+    produtos: any[];
+    total: number;
+    nomeCliente: string;
+    valor: number;
+    troco: number;
+    dataVenda: string;
+    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
+}> & {
+    produtos: any[];
+    total: number;
+    nomeCliente: string;
+    valor: number;
+    troco: number;
+    dataVenda: string;
+    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
+} & {
+    _id: import("mongoose").Types.ObjectId;
+}) | null, import("mongoose").Document<unknown, {}, {
+    produtos: any[];
+    total: number;
+    nomeCliente: string;
+    valor: number;
+    troco: number;
+    dataVenda: string;
+    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
+}> & {
+    produtos: any[];
+    total: number;
+    nomeCliente: string;
+    valor: number;
+    troco: number;
+    dataVenda: string;
+    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
+} & {
+    _id: import("mongoose").Types.ObjectId;
+}, {}, {
+    produtos: any[];
+    total: number;
+    nomeCliente: string;
+    valor: number;
+    troco: number;
+    dataVenda: string;
+    Funcionario?: import("mongoose").Types.ObjectId | null | undefined;
+}, "findOneAndDelete">;
